@@ -364,8 +364,8 @@ footer .container {
 	font: var(--h1);
 	text-align: center;
 	/* height:1.25em; */
-	margin: -2rem;
-	padding: 2rem;
+	margin: -1rem;
+	padding: 3rem;
 	word-break: break-word;
 	overflow-wrap: break-word;
 	color: var(--primary-900);
@@ -572,6 +572,10 @@ footer .footer-contact a:hover {
 	}
 }
 
+.lightbox-enabled{
+	cursor: pointer;
+}
+
 figure {
 	display: flex;
 	flex-direction: column;
@@ -586,14 +590,14 @@ figure {
 	width: auto;
 	max-height: 450px;
 	margin-inline: auto;
-	cursor: pointer;
 	gap: 16px;
 	transition: box-shadow 0.25s ease, background-color 0.25s ease,
 		scale 0.25s ease;
 }
+
 figure img {
 	width: 100%;
-	object-fit: contain;
+	object-fit: cover;
 	max-width: 100%;
 	max-height: calc(450px - 4 * var(--spacing-m));
 }
@@ -1001,5 +1005,13 @@ figure figcaption {
 
 	.jobs-list__job img {
 		height: 350px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+
+	#hero .flex-column:nth-last-child(1) {
+		min-width: auto;
+		margin-inline: 0;
 	}
 }
