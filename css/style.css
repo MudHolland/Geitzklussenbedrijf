@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'BD Renaissance';
-  src: url('./src/bd-renaissance.ttf') format('truetype');
+  src: url('/src/bd-renaissance.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
