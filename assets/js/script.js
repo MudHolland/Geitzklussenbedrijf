@@ -98,7 +98,7 @@ const lightboxCaption = document.getElementById('lightbox-caption');
 const lightboxClose = document.querySelector('.lightbox-close');
 
 document.querySelector('main').addEventListener('click', function (event) {
-  if (event.target.tagName === 'IMG') {
+  if (event.target.tagName === 'IMG' && event.target.classList.contains('lightbox-enabled')) {
     lightbox.style.display = 'block';
     lightboxImg.src = event.target.src;
     lightboxCaption.textContent = event.target.alt;
