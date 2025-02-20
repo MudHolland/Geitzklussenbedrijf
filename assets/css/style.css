@@ -950,15 +950,13 @@ figure figcaption {
 	}
 }
 
-@media only screen and (max-width: 768px) {
-	.flex {
-		flex-direction: column;
+@media only screen and (max-width: 1024px) {
+	.nav__links ul{
+		gap: var(--spacing-l);
 	}
+}
 
-	#hero .flex-column:nth-last-child(1) {
-		min-width: auto;
-		margin-inline: auto;
-	}
+@media only screen and (max-width: 900px) {
 
 	.hamburger {
 		display: flex;
@@ -1001,6 +999,17 @@ figure figcaption {
 
 	.nav__links.active {
 		display: flex;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.flex {
+		flex-direction: column;
+	}
+
+	#hero .flex-column:nth-last-child(1) {
+		min-width: auto;
+		margin-inline: auto;
 	}
 
 	.jobs-list__job img {
