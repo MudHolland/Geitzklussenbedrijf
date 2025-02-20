@@ -3,9 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./reset.css">
-	<link rel="stylesheet" href="./style.css">
-	<script src="./script.js" defer></script>
+
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="Geitz Klussenbedrijf - Betrouwbare vakman voor al uw klussen in en rondom uw huis.">
+	<meta name="keywords" content="electra,	overkappingen, waterleidingen, houtreparatie, vloercoating, tuinwerkzaamheden, kitwerkzaamheden, sanitair, verbouwing, tegelwerk, kelderrenovatie, keukenrenovatie, badkamerrenovatie, stucwerk, schilderwerk, timmerwerk, klussen, Geitz">
+	<meta name="author" content="Geitz Klussenbedrijf">
+
+	<!-- Open Graph for Social Media -->
+	<meta property="og:title" content="Geitz Klussenbedrijf">
+	<meta property="og:description" content="Betrouwbare vakman voor al uw klussen in en rondom uw huis.">
+	<meta property="og:image" content="/assets/images/logo.avif">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.geitzklussenbedrijf.nl">
+	<meta property="og:site_name" content="Geitz Klussenbedrijf">
+	<meta property="og:locale" content="nl_NL">
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Geitz Klussenbedrijf">
+	<meta name="twitter:description" content="Betrouwbare vakman voor al uw klussen in en rondom uw huis.">
+	<meta name="twitter:image" content="/assets/images/logo.avif">
+	
+	<!-- Stylesheets -->
+	 <link rel="stylesheet" href="/assets/css/reset.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	
+	<!-- Scripts -->
+	<script src="/assets/js/script.js" defer></script>
+
+	<!-- Fonts -->
+	<link rel="preload" href="/assets/fonts/bd-renaissance.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
+	</noscript>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.ico">
+	<link rel="apple-touch-icon" sizes="128x128" href="/assets/favicon/favicon-128x128.png">
+
 	<title>Geitz Klussenbedrijf</title>
 </head>
 <body>
@@ -13,10 +50,7 @@
 		<div class="container">
 			<nav>
 			  <div class="nav__logo">
-				<a href="/" class="wordmark">
-				  <!-- <img src="./src/woordmerk_Geitz.png" alt="Geitz Klussenbedrijf"> -->
-				   Geitz Klussenbedrijf
-				</a>
+				<a href="/" class="wordmark">Geitz Klussenbedrijf</a>
 			  </div>
 			  <button class="hamburger" aria-label="Toggle menu">
 				<span class="hamburger__line"></span>
@@ -26,21 +60,22 @@
 			  <div class="nav__links">
 				<ul>
 				  <li>
-					<a href="./diensten/" aria-haspopup="true" aria-expanded="false">Diensten</a>
+					<a href="/diensten/" aria-haspopup="true" aria-expanded="false">Diensten</a>
 					<ul class="submenu">
-					  <li><a href="./diensten/#renovatie">Renovatie</a></li>
-					  <li><a href="./diensten/#timmerwerk">Timmerwerk</a></li>
-					  <li><a href="./diensten/#stucwerk">Stucwerk</a></li>
-					  <li><a href="./diensten/#schilderwerk">Schilderwerk</a></li>
-					  <li><a href="./diensten/#installatie">Installatie</a></li>
-					  <li><a href="./diensten/#coating">Vloercoating</a></li>
+					  <li><a href="/diensten/#renovatie">Renovatie</a></li>
+					  <li><a href="/diensten/#timmerwerk">Timmerwerk</a></li>
+					  <li><a href="/diensten/#stucwerk">Stucwerk</a></li>
+					  <li><a href="/diensten/#schilderwerk">Schilderwerk</a></li>
+					  <li><a href="/diensten/#installatie">Installatie</a></li>
+					  <li><a href="/diensten/#coating">Vloercoating</a></li>
 					</ul>
 				  </li>
 				  <li>
-					<a href="./over-ons/" aria-haspopup="true" aria-expanded="false">Over ons</a>
+					<a href="/over-mij/" aria-haspopup="true" aria-expanded="false">Over mij</a>
 					<ul class="submenu">
-					  <li><a href="./over-ons/#wie-ben-ik">Wie zijn wij</a></li>
-					  <li><a href="./over-ons/#partners">Partners</a></li>
+						<li><a href="/over-mij/#wie-ben-ik">Wie ben ik</a></li>
+						<li><a href="/over-mij/#certificaten">Certificaten</a></li>
+					  <li><a href="/over-mij/#partners">Partners</a></li>
 					</ul>
 				  </li>
 				  <li><a class="button" href="#contact">Contact</a></li>
@@ -52,15 +87,13 @@
 	<main>
 		<section id="hero">
 			<div class="container flex">
+				<div class="flex-column"></div>
 				<div class="flex-column">
-					<!-- <img src="src/kelder-opdracht.webp" alt="Geitz Klussenbedrijf"> -->
-				</div>
-				<div class="flex-column">
-					<h1>Geitz <wbr>Klussen</wbr>bedrijf</h1>
-					<p>Wij zijn een klussenbedrijf dat gespecialiseerd is in het renoveren van woningen en bedrijfspanden. Wij werken met een team van ervaren vakmensen die u graag helpen met uw klus.</p>
-					<div class="flex align-left">
+					<h1>Geitz Klussenbedrijf</h1>
+					<p>Mijn klussenbedrijf is gespecialiseerd in het renoveren van woningen en bedrijfspanden. Ik ben van alle markten thuis en werk waar nodig met een team van ervaren vakmensen die u graag helpen met elke klus.</p>
+					<div class="flex-row align-left">
 						<a class="button" href="#contact">Contact</a>
-						<a class="button secondary" href="./diensten/">diensten</a>
+						<a class="button secondary" href="/diensten/">diensten</a>
 					</div>
 				</div>
 			</div>
@@ -70,79 +103,55 @@
 				<div class="title-wrapper">
 					<h2>Diensten</h2>
 				</div>
-				<p>Wij bieden verschillende diensten aan voor zowel particulieren als bedrijven. Dit is slechts een greep uit onze diensten.</p>
+				<p>Ik bied verschillende diensten aan voor zowel particulieren als bedrijven. Dit is slechts een greep uit mijn diensten.</p>
 				<div class="jobs-list">
-					<a href="./diensten/#renovatie">
-						<figure>
-						<div class="image-wrapper">
-							<img src="src/balkon-resultaat2.jpeg" alt="Renovatie">
-						</div>
+					<a class="jobs-list__job" href="/diensten/#renovatie">
+						<img src="/assets/images/balkon-resultaat2.jpeg" alt="Renovatie">
 						<div class="jobs-list__content">
 							<h3>Renovatie</h3>
-							<p>Geef je woning of bedrijfspand een complete make-over! Wij renoveren met oog voor detail en kwaliteit.</p>
-							<h4>meer info -></h4>
+							<p>Geef je woning of bedrijfspand een complete make-over! Wij renoveren met oog voor detail en kwaliteit. dit is om de kaart hoger en langer te maken en te kijken of de rest meegroeit</p>
 						</div>
-						</figure>
+						<h4>meer info -></h4>
 					</a>
-					<a href="./diensten/#timmerwerk">
-						<figure>
-						<div class="image-wrapper">
-							<img src="src/timmerwerk-resultaat.webp" alt="Timmerwerk">
-						</div>
+					<a class="jobs-list__job"  href="/diensten/#timmerwerk">
+						<img src="/assets/images/timmerwerk-resultaat.webp" alt="Timmerwerk">
 						<div class="jobs-list__content">
 							<h3>Timmerwerk</h3>
 							<p>Maatwerk timmerwerk voor elk project. Van kozijnen tot meubels tot schuren, wij zorgen voor vakmanschap op maat.</p>
-							<h4>meer info -></h4>
 						</div>
-						</figure>
+						<h4>meer info -></h4>
 					</a>
-					<a href="./diensten/#stucwerk">
-						<figure>
-						<div class="image-wrapper">
-							<img src="src/schilder4-resultaat.webp" alt="Stucwerk">
-						</div>
+					<a class="jobs-list__job"  href="/diensten/#stucwerk">
+						<img src="/assets/images/schilder4-resultaat.webp" alt="Stucwerk">
 						<div class="jobs-list__content">
 							<h3>Stucwerk</h3>
 							<p>Strakke muren en plafonds? Ons stucwerk geeft je interieur een hoogwaardige afwerking. Laat je adviseren door ons.</p>
-							<h4>meer info -></h4>
 						</div>
-						</figure>
+						<h4>meer info -></h4>
 					</a>
-					<a href="./diensten/#schilderwerk">
-						<figure href="">
-							<div class="image-wrapper">
-								<img src="src/schilder-resultaat1.jpeg" alt="Schilderwerk">
-							</div>
-							<div class="jobs-list__content">
-								<h3>Schilderwerk</h3>
-								<p>Professioneel schilderwerk voor binnen en buiten. Duurzaam, strak en vakkundig uitgevoerd. </p>
-								<h4>meer info -></h4>
-							</div>
-						</figure>
-					</a>
-					<a href="./diensten/#installatie">
-						<figure>
-							<div class="image-wrapper">
-								<img src="src/dak2.jpeg" alt="Installatie">
-							</div>
-							<div class="jobs-list__content">
-								<h3>Installatie</h3>
-								<p>Van elektra tot sanitair: wij verzorgen alle installatiewerkzaamheden met precisie en betrouwbaarheid.</p>
-								<h4>meer info -></h4>
-							</div>
-						</figure>
-					</a>
-					<a href="./diensten/#coating">
-						<figure>
-						<div class="image-wrapper">
-							<img src="src/coating-resultaat1.jpeg" alt="Vloercoating">
+					<a class="jobs-list__job"  href="/diensten/#schilderwerk">
+						<img src="/assets/images/schilder-resultaat1.jpeg" alt="Schilderwerk">
+						<div class="jobs-list__content">
+							<h3>Schilderwerk</h3>
+							<p>Professioneel schilderwerk voor binnen en buiten. Duurzaam, strak en vakkundig uitgevoerd. </p>
 						</div>
+						<h4>meer info -></h4>
+					</a>
+					<a class="jobs-list__job"  href="/diensten/#installatie">
+						<img src="/assets/images/dak2.jpeg" alt="Installatie">
+						<div class="jobs-list__content">
+							<h3>Installatie</h3>
+							<p>Van elektra tot sanitair: wij verzorgen alle installatiewerkzaamheden met precisie en betrouwbaarheid.</p>
+						</div>
+						<h4>meer info -></h4>
+					</a>
+					<a class="jobs-list__job"  href="/diensten/#coating">
+						<img src="/assets/images/coating-resultaat1.jpeg" alt="Vloercoating">
 						<div class="jobs-list__content">
 							<h3>Vloercoating</h3>
 							<p>Duurzame en stijlvolle vloercoatings voor een strakke en slijtvaste afwerking. Geschikt voor woningen en bedrijfsruimtes.</p>
-							<h4>meer info -></h4>
 						</div>
-						</figure>
+						<h4>meer info -></h4>
 					</a>
 					</div>
 				</div>
@@ -158,20 +167,15 @@
 				</div>
 				<div class="flex-column">
 					<div class="about-list">
-					<a href="./over-ons">
+					<a href="/over-mij">
 						<figure class="">
 							<div class="image-wrapper">
-							<img src="https://images.pexels.com/photos/5025669/pexels-photo-5025669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="dit is een titel">
-							<!-- <img src="src/foto-voorstellen.jpeg" alt="dit is een titel" style="height:400px"> -->
+							<img src="/assets/images/Marc-Geitz.jpg" alt="dit is een titel">
 							 </div>
 							<figcaption>Even voorstellen</figcaption>
 						</figure>
 					</a>
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</section>
@@ -182,76 +186,19 @@
 				</div>
 				<div class="carousel items-2">
 					<div class="carousel-track">
-						<!-- <div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div><div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						<div class="carousel-item" style="padding:1rem;background-color:black;color:white;box-sizing:border-box">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit maiores autem nesciunt cumque nostrum labore nisi ducimus sequi enim corrupti aperiam earum odit at, iste tempore blanditiis! Quis, itaque laboriosam.</p>
-						</div>
-						 -->
 						<div class="carousel-item">
 							<blockquote>
-								<p>Geitz Klussenbedrijf heeft mijn woning gerenoveerd en ik ben zeer tevreden met het resultaat. De vakmensen waren vriendelijk en professioneel en het werk was snel klaar.</p>
-								<cite>Jan de Vries, Amstelveen</cite>
+								<p>Plaatsing van een kattenluik. Erg aan te raden Alles liep vlekkeloos.</p>
+								<div class="quote-data">
+									<div class="star-rating">★★★★★</div>
+									<cite>Samer, Nijmegen - via Werkspot</cite>
+								</div>
 							</blockquote>
 						</div>
 						<div class="carousel-item">
 							<blockquote>
-								<p>Ik heb Geitz Klussenbedrijf ingeschakeld voor het schilderen van mijn bedrijfspand en ik ben zeer tevreden met het resultaat. Echte vakmannen, vriendelijk en de klus was snel geklaard.</p>
-								<cite>Peter Jansen, Rotterdam</cite>
-							</blockquote>
-						</div>
-						<div class="carousel-item">
-							<blockquote>
-								<p>Ik heb Geitz Klussenbedrijf ingeschakeld voor het schilderen van mijn bedrijfspand en ik ben zeer tevreden met het resultaat. Echte vakmannen, waren vriendelijk en professioneel en de klus was snel geklaard.</p>
-								<cite>Peter Jansen, Rotterdam</cite>
-							</blockquote>
-						</div>
-						<div class="carousel-item">
-							<blockquote>
-								<p>Ik heb Geitz Klussenbedrijf ingeschakeld voor het schilderen van mijn bedrijfspand en ik ben zeer tevreden met het resultaat. Echte vakmannen, waren vriendelijk en professioneel en de klus was snel geklaard.</p>
-								<cite>Peter Jansen, Rotterdam</cite>
+								<p>Marc Geitz bracht kennis, expertise en in zijn kielzog een groep bedreven vaklui. Het slopen, afvoeren en afwerken van onze haarden was binnen een paar dagen geklaard. </p>
+								<cite>Dennis, Oss</cite>
 							</blockquote>
 						</div>
 					</div>
@@ -265,85 +212,6 @@
 				</div>
 			</div>
 		</section>
-		<!-- <section id="afbeeldingen">
-			<div class="container">
-				<div class="title-wrapper">
-					<h2>Foto's</h2>
-				</div>
-				<div class="carousel items-2">
-					<div class="carousel-track">
-						<div class="carousel-item">
-							<figure>
-									<img src="src/balkon-opdracht1.webp" alt="dit is een titel">
-								<figcaption>Voor</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/balkon-resultaat2.jpeg" alt="dit is een titel">
-								</div>
-								<figcaption>Na</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/balkon-proces1.webp" alt="dit is een titel">
-								</div>
-								<figcaption>Na</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/balkon-resultaat1.jpeg" alt="dit is een titel">
-								</div>
-								<figcaption>Dit is de tekst</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/balkon-proces2.jpeg" alt="dit is een titel">
-								</div>
-								<figcaption>Dit is de tekst</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/balkon-resultaat1.jpeg" alt="dit is een titel">
-								</div>
-								<figcaption>Dit is de tekst</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/coating-resultaat1.jpeg" alt="dit is een titel">
-								</div>
-								<figcaption>Dit is de tekst</figcaption>
-							</figure>
-						</div>
-						<div class="carousel-item">
-							<figure>
-								<div class="figure-image-wrapper">
-									<img src="src/coating-resultaat2.jpeg" alt="dit is een titel">
-								</div>
-								<figcaption>Dit is de tekst</figcaption>
-							</figure>
-						</div>
-					</div>
-					<div class="carousel-controls">
-						<button class="carousel-control prev">&lt;</button>
-						<button class="carousel-control next">&gt;</button>
-					</div>
-					<div class="carousel-indicators">
-					</div>
-				</div>
-			</div>
-		</section>-->
 		<section id="contact">	
 				<div class="container flex">
 					<div class="flex-column wide">	
@@ -354,7 +222,7 @@
 				</div>
 			<div class="flex-column">
 				<div class="contact-form">
-					<form action="contact.php" method="post">
+					<form action="/assets/contact.php" method="post">
 						<div class="form-group">
 							<label for="name">Naam</label>
 							<input type="text" id="name" name="name" required>
@@ -374,33 +242,29 @@
 			</div>
 		</section>
 	</main>
-	<!-- Lightbox container -->
-	<div id="lightbox" class="lightbox">
-		<span class="lightbox-close">&times;</span>
-		<img class="lightbox-content" id="lightbox-img">
-		<div id="lightbox-caption" class="lightbox-caption"></div>
-	</div>
 	<footer>
 		<div class="container footer-container">
 			<div class="footer-logo">
-				<img src="src/logo.avif" alt="Geitz Klussenbedrijf">
+				<img src="/assets/logos/logo.avif" alt="Geitz Klussenbedrijf">
 			</div>
 			<div class="footer-contact">
 				<p>Geitz Klussenbedrijf<br>
 					Wrijfschaalpad 21c<br>
 					5347 HX Oss<br>
 					06 - 21 813 113<br>
-					<a href="mailto:geitzklussenbedrijf@outlook.com">geitzklussenbedrijf@outlook.com</a><br>
+					<a href="mailto:info@geitzklussenbedrijf.nl">info@geitzklussenbedrijf.nl</a><br>
 					KvK Oost Brabant: 81824092<br>
-					<div style="background-color:white;padding:4px;border-radius:4px;margin-top:8px;"><img src="./src/logo-vca.webp" alt=""></div>
 				</p>
-
 			</div>
 		</div>
 		<div class="footer-copyright">
 			<p>&copy; 2021 - <span id="current-year"></span> Geitz klussenbedrijf</p>
 		</div>
 	</footer>
-</html>
+	<div id="lightbox" class="lightbox">
+		<span class="lightbox-close">&times;</span>
+		<img class="lightbox-content" id="lightbox-img">
+		<div id="lightbox-caption" class="lightbox-caption"></div>
+	</div>
 </body>
 </html>
