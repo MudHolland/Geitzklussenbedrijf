@@ -1,0 +1,22 @@
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: var(--secondary-100);
+}
+
+img{
+	width: 100%;
+	height: auto;
+}
+
+h1{
+	font-family:'BD Renaissance';
+	font-weight:400;
+	margin-top:2rem;
+	width:100%;
+	text-align: center;
+	font-size: 4.5rem;
+	color: var(--primary-900);
+}
