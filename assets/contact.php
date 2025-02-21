@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p><b>Naam:</b> $senderName</p>
             <p><b>E-mailadres:</b> $senderEmail</p>
             <p><b>Bericht:</b><br>$senderMessage</p>
-            <p>Ik streef ernaar om binnen 1 á 2 werkdagen te antwoorden.</p>
+            <p>De website communiceert binnen 1 á 2 werkdagen te antwoorden.</p>
         </body>
         </html>
     ";
@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($mailSuccess) {
         // Send a copy to the sender
+        $logoUrl = "https://darkorange-chamois-827741.hostingersite.com/assets/logos/logo.avif";
         $subject_copy = "Kopie van uw bericht aan Geitz Klussenbedrijf";
         $body_copy = "
         <html>
@@ -48,7 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p><b>Bericht:</b><br>$senderMessage</p>
             <p>Bedankt voor je bericht. Ik streef ernaar om binnen 1 á 2 werkdagen te antwoorden.</p>
             <p>Met vriendelijke groet,</p>
-            <p><b>Marc Geitz</b><br>Geitz Klussenbedrijf</p>
+            <p>Marc Geitz<br>Geitz Klussenbedrijf</p>
+            <p><img src='$logoUrl' alt='Geitz Klussenbedrijf' width='200'></p>
         </body>
         </html>
         ";
