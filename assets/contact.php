@@ -1,29 +1,31 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $name = htmlspecialchars(trim($_POST['name']));
-  $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
-  $message = htmlspecialchars(trim($_POST['message']));
+  //sender data
+  $senderName = htmlspecialchars(trim($_POST['name']));
+  $senderEmail = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+  $senderMessage = htmlspecialchars(trim($_POST['message']));
 
-  if (!$email) {
-    die("Ongeldig e-mailadres. Probeer het opnieuw.");
-  }
+  // receiver data
+  $receiverMail = "dennisulijn@gmail.com"; //change to info@geitzklussenbedrijf.nl
 
-  $to = "dennisulijn@gmail.com";                                  // change to info@geitzklussenbedrijf.nl
-  $subject = "Nieuw bericht van $name";
-  $body = "Naam: $name\nE-mail: $email\n\nBericht:\n$message";
+  // email to receiver
+  $to = "$receiverMail";                           
+  $subject = "Nieuw bericht van $senderName";
+  $body = "Naam: $senderName\nE-mail: $senderEmail\n\nBericht:\n$senderMessage";
   
-  // Send email to the recipient
-  $headers = "From: info@geitzklussenbedrijf.nl\r\n";
-  $headers .= "Reply-To: $email\r\n";
+  // email to sender
+  $headers = "From: $receiverMail\r\n";
+  $headers .= "Reply-To: $receiverMail\r\n";
   $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
   $mailSuccess = mail($to, $subject, $body, $headers);
 
   if ($mailSuccess) {
       // Send a copy to the sender
       $subject_copy = "Kopie van uw bericht aan Geitz Klussenbedrijf";
-      $body_copy = "Beste $name,\n\nHier is een kopie van uw bericht:\n\n$message\n\nMet vriendelijke groet,\nGeitz Klussenbedrijf";
-      $headers_copy = "From: info@geitzklussenbedrijf.nl\r\nContent-Type: text/plain; charset=UTF-8\r\n";
-      mail($email, $subject_copy, $body_copy, $headers_copy);
+      $body_copy = "Beste $senderName,\n\nHier is een kopie van uw bericht:\n\n$senderMessage\n\nMet vriendelijke groet,\nGeitz Klussenbedrijf";
+      $headers_copy = "From: $receiverMail\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+      mail($senderEmail, $subject_copy, $body_copy, $headers_copy);
 
       // Redirect to thank-you page
       header("Location: /bericht-ontvangen/");
