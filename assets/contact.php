@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       mail($email, $subject_copy, $body_copy, "From: no-reply@dennisulijn.com\r\nContent-Type: text/plain; charset=UTF-8\r\n");
 
       // Redirect to thank-you page
-      header("Location: thank-you.html");
+      header("Location: /bericht-ontvangen/");
       exit();
   } else {
       die("Er is een fout opgetreden bij het verzenden van uw bericht. Probeer het later opnieuw.");
