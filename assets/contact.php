@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Receiver data
-    $receiverMail = "dennisulijn@gmail.com";
+    $receiverMail = "info@geitzklussenbedrijf.nl";
 
     // Email to receiver
     $to = $receiverMail;
@@ -37,13 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($mailSuccess) {
         // Send a copy to the sender
-        $logoUrl = "https://darkorange-chamois-827741.hostingersite.com/assets/logos/logo.avif";
+        $logoUrl = "https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif";
         $subject_copy = "Kopie van uw bericht aan Geitz Klussenbedrijf";
         $body_copy = "
         <html>
         <head><meta charset='UTF-8'></head>
         <body>
-            <p>Dit is een kopie van een formulier dat u via <a href='https://www.geitzklussenbedrijf.nl'>www.geitzklussenbedrijf.nl</a> heeft verstuurd.</p>
+            <p><i>Dit is een kopie van een formulier dat u via <a href='https://www.geitzklussenbedrijf.nl'>www.geitzklussenbedrijf.nl</a> heeft verstuurd.</i></p>
             <p><b>Naam:</b> $senderName</p>
             <p><b>E-mailadres:</b> $senderEmail</p>
             <p><b>Bericht:</b><br>$senderMessage</p>
