@@ -12,10 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $subject = "Nieuw bericht van $name";
   $body = "Naam: $name\nE-mail: $email\n\nBericht:\n$message";
   
-  // Send email to the recipient
+  // Set email headers for recipient
   $headers = "From: info@geitzklussenbedrijf.nl\r\n";
   $headers .= "Reply-To: $email\r\n";
   $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+  // Send email to the recipient
   $mailSuccess = mail($to, $subject, $body, $headers);
 
   if ($mailSuccess) {
