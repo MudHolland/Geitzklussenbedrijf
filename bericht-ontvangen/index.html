@@ -12,7 +12,7 @@
         <meta property="og:description" content="Betrouwbare vakman voor al uw klussen in en rondom uw huis.">
         <meta property="og:image" content="/assets/images/logo.avif">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://www.geitzklussenbedrijf.nl">
+        <meta property="og:url" content="https://www.geitzklussenbedrijf.nl/bericht-ontvangen">
         <meta property="og:site_name" content="Geitz Klussenbedrijf">
         <meta property="og:locale" content="nl_NL">
         <!-- Twitter Card -->
@@ -56,7 +56,7 @@
             href="/assets/favicon/favicon-16x16.ico"
         >
         <link rel="apple-touch-icon" sizes="128x128" href="/assets/favicon/favicon-128x128.png">
-        <title>Geitz Klussenbedrijf</title>
+        <title>Bericht ontvangen - Geitz Klussenbedrijf</title>
     </head>
     <body>
         <header>
@@ -133,230 +133,89 @@
                 <div class="container flex">
                     <div class="flex-column"></div>
                     <div class="flex-column">
-                        <h1>Geitz Klussenbedrijf</h1>
-                        <p>Mijn klussenbedrijf is gespecialiseerd in het renoveren van woningen en bedrijfspanden. Ik ben van alle markten thuis en werk waar nodig met een team van ervaren vakmensen die u graag helpen met elke klus.</p>
-                        <div class="flex-row align-left">
-                            <a class="button" href="#contact">Contact</a>
-                            <a class="button outline secondary" href="/diensten/">diensten</a>
+                        <h1>Bericht ontvangen</h1>
+                        <p>Bedankt voor je bericht. Ik streef ernaar om binnen 1 á 2 werkdagen te antwoorden.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <div class="container flex">
+                    <div class="flex-column wide">
+                        <div class="title-wrapper">
+                            <h2>Contact</h2>
+                        </div>
+                        <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
+                    </div>
+                    <div class="flex-column">
+                        <div class="contact-form">
+                            <form action="/assets/contact.php" method="post">
+                                <div class="form-group">
+                                    <label for="name">Naam</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Bericht</label>
+                                    <textarea id="message" name="message" required></textarea>
+                                </div>
+                                <button class="button" type="submit">Verstuur</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="services">
-                <div class="container flex">
-                    <div class="title-wrapper">
-                        <h2>Diensten</h2>
-                    </div>
-                    <p class="narrow">Ik bied verschillende diensten aan voor zowel particulieren als bedrijven. Dit is slechts een greep uit mijn diensten.</p>
-                    <div class="jobs-list">
-                        <a class="jobs-list__job" href="/diensten/#renovatie">
-                            <img src="/assets/images/balkon-resultaat2.jpeg" alt="Renovatie">
-                            <div class="jobs-list__content">
-                                <h3>Renovatie</h3>
-                                <p>Geef je woning of bedrijfspand een complete make-over! Wij renoveren met oog voor detail en kwaliteit. dit is om de kaart hoger en langer te maken en te kijken of de rest meegroeit</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#timmerwerk">
-                            <img src="/assets/images/timmerwerk-resultaat.webp" alt="Timmerwerk">
-                            <div class="jobs-list__content">
-                                <h3>Timmerwerk</h3>
-                                <p>Maatwerk timmerwerk voor elk project. Van kozijnen tot meubels tot schuren, ik zorg voor vakmanschap op maat.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#stucwerk">
-                            <img src="/assets/images/schilder4-resultaat.webp" alt="Stucwerk">
-                            <div class="jobs-list__content">
-                                <h3>Stucwerk</h3>
-                                <p>Strakke muren en plafonds? Stucwerk geeft je interieur een hoogwaardige afwerking. Laat je adviseren door mij.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#schilderwerk">
-                            <img src="/assets/images/schilder-resultaat1.jpeg" alt="Schilderwerk">
-                            <div class="jobs-list__content">
-                                <h3>Schilderwerk</h3>
-                                <p>Professioneel schilderwerk voor binnen en buiten. Duurzaam, strak en vakkundig uitgevoerd.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#installatie">
-                            <img src="/assets/images/dak2.jpeg" alt="Installatie">
-                            <div class="jobs-list__content">
-                                <h3>Installatie</h3>
-                                <p>Van elektra tot sanitair: wij verzorgen alle installatiewerkzaamheden met precisie en betrouwbaarheid.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#coating">
-                            <img src="/assets/images/coating-resultaat1.jpeg" alt="Vloercoating">
-                            <div class="jobs-list__content">
-                                <h3>Vloercoating</h3>
-                                <p>Duurzame en stijlvolle vloercoatings voor een strakke en slijtvaste afwerking. Geschikt voor woningen en bedrijfsruimtes.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="projecten">
-            <div class="container flex">
-                <div class="title-wrapper">
-                    <h2>Projecten</h2>
-                </div>
-                <p class="narrow">Bij projecten komen verschillende van mijn diensten kijken, van ruwbouw tot afbouw. Neem hieronder een kijkje in een greep uit de projecten die wij afgelopen tijd hebben opgeleverd.</p>
-                <div class="jobs-list">
-                    <a class="jobs-list__job" href="/projecten/pijkestraat/">
-                        <img src="/assets/images/pijkestraat.png" alt="pijkestraat">
-                        <div class="jobs-list__content">
-                            <h3>Pijkestraat</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ducimus provident a, magni inventore quasi et molestias quos officia mollitia nulla nostrum voluptatem pariatur. Perspiciatis rerum deserunt quasi dignissimos commodi.</p>
-                        </div>
-                        <h4>meer info -></h4>
-                    </a>
-                    <a class="jobs-list__job" href="/projecten/wrijfschaalpad/">
-                        <img src="/assets/images/wrijfschaalpad.png" alt="wrijfschaalpad">
-                        <div class="jobs-list__content">
-                            <h3>Wrijfschaalpad</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi repudiandae repellat dicta tempora eveniet neque est veniam officiis voluptatem? Maiores, architecto. Voluptates iusto id rem!</p>
-                        </div>
-                        <h4>meer info -></h4>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section id="about">
-            <div class="container flex">
+        </main>
+        <footer>
+            <div class="container footer-container">
                 <div class="flex-column">
-                    <div class="title-wrapper">
-                        <h2>Over mij</h2>
-                    </div>
-                    <p>Wij zijn een klussenbedrijf dat gespecialiseerd is in het renoveren van woningen en bedrijfspanden. Wij werken met een team van ervaren vakmensen die u graag helpen met uw klus.</p>
-                    <div class="title-wrapper" style="margin-top:2rem;">
-                        <a class="button secondary" href="/over-mij">Meer over mij</a>
+                    <div class="footer-logo">
+                        <img src="/assets/logos/logo.avif" alt="Geitz Klussenbedrijf">
                     </div>
                 </div>
                 <div class="flex-column">
-                    <div class="carousel-item">
-                        <figure>
-                            <img class="lightbox-enabled" src="/assets/images/Marc-Geitz.jpg" alt="Marc Geitz: Eigenaar Geitz Klussenbedrijf">
-                            <figcaption>Marc Geitz: Eigenaar Geitz Klussenbedrijf</figcaption>
-                        </figure>
+                    <div class="footer-contact">
+                        <p>
+                            Geitz Klussenbedrijf
+                            <br>
+                            Wrijfschaalpad 21c
+                            <br>
+                            5347 HX Oss
+                            <br>
+                            06 - 21 813 113
+                            <br>
+                            <a href="mailto:info@geitzklussenbedrijf.nl">info@geitzklussenbedrijf.nl</a>
+                            <br>
+                            KvK Oost Brabant: 81824092
+                            <br>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="testimonials">
-            <div class="container">
-                <div class="title-wrapper">
-                    <h2>Reviews</h2>
-                </div>
-                <div class="carousel items-2">
-                    <div class="carousel-track">
-                        <div class="carousel-item">
-                            <blockquote>
-                                <p>Plaatsing van een kattenluik. Erg aan te raden Alles liep vlekkeloos.</p>
-                                <div class="quote-data">
-                                    <div class="star-rating">★★★★★</div>
-                                    <cite>Samer, Nijmegen - via Werkspot</cite>
-                                </div>
-                            </blockquote>
-                        </div>
-                        <div class="carousel-item">
-                            <blockquote>
-                                <p>Marc Geitz bracht kennis, expertise en in zijn kielzog een groep bedreven vaklui. Het slopen, afvoeren en afwerken van onze haarden was binnen een paar dagen geklaard.</p>
-                                <cite>Dennis, Oss</cite>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <div class="carousel-controls">
-                        <button class="carousel-control prev">&lt;</button>
-                        <button class="carousel-control next">&gt;</button>
-                    </div>
-                    <div class="carousel-indicators"></div>
-                </div>
+            <div class="footer-copyright">
+                <p>
+                    &copy; 2021 -
+                    <span id="current-year"></span>
+                    Geitz klussenbedrijf
+                </p>
             </div>
-        </section>
-        <section id="contact">
-            <div class="container flex">
-                <div class="flex-column wide">
-                    <div class="title-wrapper">
-                        <h2>Contact</h2>
-                    </div>
-                    <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
-                </div>
-                <div class="flex-column">
-                    <div class="contact-form">
-                        <form action="/assets/contact.php" method="post">
-                            <div class="form-group">
-                                <label for="name">Naam</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Bericht</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button class="button" type="submit">Verstuur</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container footer-container">
-            <div class="flex-column">
-                <div class="footer-logo">
-                    <img src="/assets/logos/logo.avif" alt="Geitz Klussenbedrijf">
-                </div>
-            </div>
-            <div class="flex-column">
-                <div class="footer-contact">
-                    <p>
-                        Geitz Klussenbedrijf
-                        <br>
-                        Wrijfschaalpad 21c
-                        <br>
-                        5347 HX Oss
-                        <br>
-                        06 - 21 813 113
-                        <br>
-                        <a href="mailto:info@geitzklussenbedrijf.nl">info@geitzklussenbedrijf.nl</a>
-                        <br>
-                        KvK Oost Brabant: 81824092
-                        <br>
-                    </p>
-                </div>
-            </div>
+        </footer>
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
-        <div class="footer-copyright">
-            <p>
-                &copy; 2021 -
-                <span id="current-year"></span>
-                Geitz klussenbedrijf
-            </p>
-        </div>
-    </footer>
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
-</body>
+    </body>
 </html>
