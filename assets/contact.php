@@ -6,11 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $senderMessage = htmlspecialchars(trim($_POST['message']));
 
   // receiver data
-  $receiverMail = "dennisulijn@gmail.com"; //change to info@geitzklussenbedrijf.nl
+  $receiverMail = "info@geitzklussenbedrijf.nl";
 
   // email to receiver
   $to = "$receiverMail";                           
-  $subject = "Nieuw bericht van $senderName";
+  $subject = "Bericht via de website van $senderName";
   $body = "Naam: $senderName\nE-mail: $senderEmail\n\nBericht:\n$senderMessage";
   
   // email to sender
