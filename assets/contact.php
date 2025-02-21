@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <html>
         <head><meta charset='UTF-8'></head>
         <body>
-            <p>Dit is een kopie van een formulier dat u via <a href='https://www.geitzklussenbedrijf.nl'>www.geitzklussenbedrijf.nl</a> heeft verstuurd.</p>
+            <p>Dit is een kopie van een formulier dat via <a href='https://www.geitzklussenbedrijf.nl'>www.geitzklussenbedrijf.nl</a> is verstuurd.</p>
             <p><b>Naam:</b> $senderName</p>
             <p><b>E-mailadres:</b> $senderEmail</p>
             <p><b>Bericht:</b><br>$senderMessage</p>
-            <p>De website communiceert binnen 1 á 2 werkdagen te antwoorden.</p>
+            <p>De website communiceert <b>binnen 1 á 2 werkdagen</b> te antwoorden.</p>
         </body>
         </html>
     ";
@@ -48,10 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p><b>E-mailadres:</b> $senderEmail</p>
             <p><b>Bericht:</b><br>$senderMessage</p>
             <hr>
+            <p>-------------------------------------------------------------------</p>
             <p>Bedankt voor je bericht. Ik streef ernaar om binnen 1 á 2 werkdagen te antwoorden.</p>
             <p>Met vriendelijke groet,</p>
             <p>Marc Geitz<br>Geitz Klussenbedrijf</p>
             <br>
+            <p><br></p>
+            <p></p>
             <p><img src='$logoUrl' alt='Geitz Klussenbedrijf' width='200'></p>
         </body>
         </html>
