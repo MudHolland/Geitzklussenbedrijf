@@ -498,6 +498,8 @@ footer .footer-contact {
 	font: var(--p);
 	color: var(--white);
 	text-align: center;
+	width:fit-content;
+	margin-inline:auto 3rem;
 }
 
 footer .footer-contact a {
@@ -788,7 +790,7 @@ figure figcaption {
 	background-color: var(--secondary-100);
 	padding: var(--spacing-l);
 	border-radius: var(--spacing-xs);
-	min-width: 500px;
+	min-width: 400px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -823,14 +825,40 @@ figure figcaption {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: stretch;
 	gap: var(--spacing-l);
 	padding: var(--spacing-l) var(--spacing-l);
 }
 
-.partners-list figure {
+.partners-list a {
+	flex: 0 1 calc(33% - 2rem);
+	min-width:325px;
+	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	width: 20rem;
-	height: 170px;
+	border-radius: var(--spacing-s);
+	transform: scale(1);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: 
+		transform var(--time-m) ease,
+		box-shadow var(--time-m) ease;
+}
+
+.partners-list a:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.partners-list figure {
+	padding:var(--spacing-s);
+	height:100%;
+	width:100%;
+	justify-content: space-between;
+}
+
+.partners-list img {
+	object-fit: contain;
+	height:200px;
 }
 
 .partners-list a {
@@ -896,7 +924,6 @@ figure figcaption {
 	color: inherit;
 }
 
-.partners-list img,
 .jobs-list img {
 	width: 100%;
 	object-fit: cover;
@@ -941,18 +968,21 @@ figure figcaption {
 		background-position: 0;
 	}
 
-	.flex-column {
-		min-width: auto;
-	}
-
+	.narrow,
+	.flex-column,
 	#hero .flex-column:nth-last-child(1) {
 		max-width: 500px;
+		/* min-width: auto; */
 	}
 }
 
 @media only screen and (max-width: 1024px) {
 	.nav__links ul{
 		gap: var(--spacing-l);
+	}
+
+	footer .footer-contact {
+		margin-inline:auto;
 	}
 }
 
@@ -1000,6 +1030,11 @@ figure figcaption {
 	.nav__links.active {
 		display: flex;
 	}
+	
+	footer .container{
+		flex-direction:column;
+		gap:var(--spacing-l);
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -1007,6 +1042,7 @@ figure figcaption {
 		flex-direction: column;
 	}
 
+	.flex-column,
 	#hero .flex-column:nth-last-child(1) {
 		min-width: auto;
 		margin-inline: auto;

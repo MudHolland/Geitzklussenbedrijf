@@ -1,8 +1,20 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = htmlspecialchars($_POST['name']);
-  $email = htmlspecialchars($_POST['email']);
-  $message = htmlspecialchars($_POST['message']);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  $name = htmlspecialchars(trim($_POST['name']));
+  $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+  $message = htmlspecialchars(trim($_POST['message']));
+
+  if (!$email) {
+    die("Ongeldig e-mailadres. Probeer het opnieuw.");
+  }
+
+  $to = "dennisulijn@gmail.com";
+  $subject = "Nieuw bericht van $name";
+  $body = "Naam: $name\nE-mail: $email\n\nBericht:\n$message";
+
+  $headers = "From: info@geitzklussenbedrijf.nl\r\n";
+  $headers .= "Reply-To: $email\r\n";
+  $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
   $to = "dennisulijn@gmail.com";
   $subject = "Nieuw bericht van $name";
@@ -10,16 +22,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $headers = "From: $email\r\n";
   $headers .= "Reply-To: $email\r\n";
 
-  // Send email to Geitz Klussenbedrijf
-  mail($to, $subject, $body, $headers);
+  // Send email and check for success
+  $mailSuccess = mail($to, $subject, $body, $headers);
 
-  // Send copy to sender
-  $subject_copy = "Kopie van uw bericht aan Geitz Klussenbedrijf";
-  $body_copy = "Beste $name,\n\nHier is een kopie van uw bericht:\n\n$message\n\nMet vriendelijke groet,\nGeitz Klussenbedrijf";
-  mail($email, $subject_copy, $body_copy, "From: dennisulijn@gmail.com\r\n");
+  if ($mailSuccess) {
+      // Send copy to sender
+      $subject_copy = "Kopie van uw bericht aan Geitz Klussenbedrijf";
+      $body_copy = "Beste $name,\n\nHier is een kopie van uw bericht:\n\n$message\n\nMet vriendelijke groet,\nGeitz Klussenbedrijf";
 
-  // Redirect to a thank you page (optional)
-  header("Location: thank-you.html");
-  exit();
+      mail($email, $subject_copy, $body_copy, "From: no-reply@dennisulijn.com\r\nContent-Type: text/plain; charset=UTF-8\r\n");
+
+      // Redirect to thank-you page
+      header("Location: thank-you.html");
+      exit();
+  } else {
+      die("Er is een fout opgetreden bij het verzenden van uw bericht. Probeer het later opnieuw.");
+  }
 }
 ?>
