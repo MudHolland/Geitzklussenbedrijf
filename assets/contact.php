@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Receiver data
-    $receiverMail = "info@geitzklussenbedrijf.nl";
+    $receiverMail = "dennisulijn@gmail.com";
 
     // Email to receiver
     $to = $receiverMail;
