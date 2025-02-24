@@ -336,7 +336,7 @@ footer .container {
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-	background-image: url("/assets/images/werk-schilder-overkapping.webp");
+    background-image: var(--hero-bg-image, url("/assets/images/werk-schilder-overkapping.webp"));
 	opacity: 0.3;
 	background-size: cover;
 	background-position: 0 -100px;

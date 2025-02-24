@@ -168,3 +168,14 @@ navLinks.addEventListener('click', () => {
   navLinks.classList.remove('active');
   hamburger.classList.remove('active');
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const heroSection = document.getElementById('hero');
+  const bgImage = heroSection.getAttribute('data-bg');
+  if (bgImage) {
+      heroSection.style.setProperty('--hero-bg-image', `url(${bgImage})`);
+  } else {
+      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/werk-schilder-overkapping.webp")');
+  }
+});
