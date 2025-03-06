@@ -169,6 +169,7 @@ h4 {
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
+	width:calc(100vw - 2rem);
 	padding: 0 var(--spacing);
 }
 
@@ -445,17 +446,18 @@ blockquote {
 	color: var(--secondary-900);
 	border-left: 4px solid var(--primary-500);
 	padding: var(--spacing-s) var(--spacing);
-	margin-inline: 0;
-	width: 100%;
-	height: 100%;
+	/* margin-inline: 0; */
+	/* width: 100%; */
+	/* height: 100%; */
 	background-color: var(--secondary-100);
 	border-radius: var(--spacing-xs);
-	position: relative;
+	/* position: relative; */
 	transition: box-shadow var(--time-m) ease;
-}
-
-blockquote:hover {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	height: auto;
+	width: auto;
+	max-height: 450px;
+	/* margin-inline: auto; */
 }
 
 blockquote p::before,
@@ -681,6 +683,7 @@ figure figcaption {
 	transform: translateY(-50%);
 	z-index: 10;
 	pointer-events: none;
+	max-width:calc(100vw - 2rem);
 }
 
 .carousel-control {
@@ -724,9 +727,18 @@ figure figcaption {
 	border: 1px solid var(--white);
 }
 
-.carousel-item figure {
+.carousel-item figure,
+.carousel-item blockquote {
 	max-height: 100%;
 	max-width: 100%;
+}
+
+.carousel-item:has(blockquote){
+	justify-content: flex-start;
+}
+
+.carousel-item blockquote{
+	max-width:calc(100vw - 10rem);
 }
 
 .lightbox {
