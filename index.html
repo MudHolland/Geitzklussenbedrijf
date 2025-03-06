@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="/assets/css/style.css">
         <!-- Scripts -->
         <script src="/assets/js/script.js" defer></script>
+        <script src="/assets/js/components.js" defer></script>
         <!-- Fonts -->
         <link
             rel="preload"
@@ -59,95 +60,13 @@
         <title>Geitz Klussenbedrijf</title>
     </head>
     <body>
-        <header>
-            <div class="container">
-                <nav>
-                    <div class="nav__logo">
-                        <a href="/" class="wordmark">Geitz Klussenbedrijf</a>
-                    </div>
-                    <button class="hamburger" aria-label="Toggle menu">
-                        <span class="hamburger__line"></span>
-                        <span class="hamburger__line"></span>
-                        <span class="hamburger__line"></span>
-                    </button>
-                    <div class="nav__links">
-                        <ul>
-                            <li>
-                                <a href="/diensten/" aria-haspopup="true" aria-expanded="false">Diensten</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="/diensten/#renovatie">Renovatie</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#timmerwerk">Timmerwerk</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#stucwerk">Stucwerk</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#schilderwerk">Schilderwerk</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#installatie">Installatie</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#kitwerk">Kitwerk</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#coating">Coating</a>
-                                    </li>
-                                    <li>
-                                        <a href="/diensten/#vloeren">Vloeren</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- <li>
-                                <a href="/projecten/" aria-haspopup="true" aria-expanded="false">Projecten</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="/projecten/pijkestraat">Project Pijkestraat</a>
-                                    </li>
-                                    <li>
-                                        <a href="/projecten/wrijfschaalpad/">Project Wrijfschaalpad</a>
-                                    </li>
-                                </ul>
-                            </li> -->
-                            <li>
-                                <a href="/over-mij/" aria-haspopup="true" aria-expanded="false">Over mij</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="/over-mij/#wie-ben-ik">Wie ben ik</a>
-                                    </li>
-                                    <li>
-                                        <a href="/over-mij/#certificaten">Certificaten</a>
-                                    </li>
-                                    <li>
-                                        <a href="/over-mij/#partners">Partners</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="button" href="#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        <geitz-header></geitz-header>
         <main>
-            <section id="hero">
-                <div class="container flex">
-                    <div class="flex-column"></div>
-                    <div class="flex-column">
-                        <h1>Geitz Klussenbedrijf</h1>
-                        <p>Mijn klussenbedrijf is gespecialiseerd in het renoveren van woningen en bedrijfspanden. Ik ben van alle markten thuis en werk waar nodig met een team van ervaren vakmensen die u graag helpen met elke klus.</p>
-                        <div class="flex-row buttons">
-                            <a class="button" href="#contact">Contact</a>
-                            <a class="button outline secondary" href="/diensten/">diensten</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <geitz-hero
+                title="Geitz Klussenbedrijf"
+                text="Mijn klussenbedrijf is gespecialiseerd in het renoveren van woningen en bedrijfspanden. Ik ben van alle markten thuis en werk waar nodig met een team van ervaren vakmensen die u graag helpen met elke klus."
+                diensten
+                ></geitz-hero>
             <section id="services">
                 <div class="container flex">
                     <div class="title-wrapper">
@@ -155,54 +74,48 @@
                     </div>
                     <p class="narrow">Ik bied verschillende diensten aan voor zowel particulieren als bedrijven. Dit is slechts een greep uit mijn diensten.</p>
                     <div class="jobs-list">
-                        <a class="jobs-list__job" href="/diensten/#renovatie">
-                            <img src="/assets/images/balkon-resultaat2.jpeg" alt="Renovatie">
-                            <div class="jobs-list__content">
-                                <h3>Renovatie</h3>
-                                <p>Geef je woning of bedrijfspand een complete make-over! Wij renoveren met oog voor detail en kwaliteit. dit is om de kaart hoger en langer te maken en te kijken of de rest meegroeit</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#timmerwerk">
-                            <img src="/assets/images/timmerwerk-resultaat.webp" alt="Timmerwerk">
-                            <div class="jobs-list__content">
-                                <h3>Timmerwerk</h3>
-                                <p>Maatwerk timmerwerk voor elk project. Van kozijnen tot meubels tot schuren, ik zorg voor vakmanschap op maat.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#stucwerk">
-                            <img src="/assets/images/schilder4-resultaat.webp" alt="Stucwerk">
-                            <div class="jobs-list__content">
-                                <h3>Stucwerk</h3>
-                                <p>Strakke muren en plafonds? Stucwerk geeft je interieur een hoogwaardige afwerking. Laat je adviseren door mij.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#schilderwerk">
-                            <img src="/assets/images/schilder-resultaat1.jpeg" alt="Schilderwerk">
-                            <div class="jobs-list__content">
-                                <h3>Schilderwerk</h3>
-                                <p>Professioneel schilderwerk voor binnen en buiten. Duurzaam, strak en vakkundig uitgevoerd.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#installatie">
-                            <img src="/assets/images/installatie-1.jpg" alt="Installatie">
-                            <div class="jobs-list__content">
-                                <h3>Installatie</h3>
-                                <p>Van elektra tot sanitair: wij verzorgen alle installatiewerkzaamheden met precisie en betrouwbaarheid.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
-                        <a class="jobs-list__job" href="/diensten/#coating">
-                            <img src="/assets/images/coating-resultaat1.jpeg" alt="Vloercoating">
-                            <div class="jobs-list__content">
-                                <h3>Vloercoating</h3>
-                                <p>Duurzame en stijlvolle vloercoatings voor een strakke en slijtvaste afwerking. Geschikt voor woningen en bedrijfsruimtes.</p>
-                            </div>
-                            <h4>meer info -></h4>
-                        </a>
+                        <geitz-card 
+                            href="/diensten/#renovatie"
+                            src="/assets/images/balkon-resultaat2.jpeg"
+                            alt="Renovatie"
+                            title="Renovatie"
+                            text="Geef je woning of bedrijfspand een complete make-over! Wij renoveren met oog voor detail en kwaliteit."
+                        ></geitz-card>
+                        <geitz-card 
+                            href="/diensten/#timmerwerk"
+                            src="/assets/images/timmerwerk-resultaat.webp"
+                            alt="Timmerwerk"
+                            title="Timmerwerk"
+                            text="Maatwerk timmerwerk voor elk project. Van kozijnen tot meubels tot schuren, ik zorg voor vakmanschap op maat."
+                        ></geitz-card>
+                        <geitz-card 
+                            href="/diensten/#stucwerk"
+                            src="/assets/images/schilder4-resultaat.webp"
+                            alt="Stucwerk"
+                            title="Stucwerk"
+                            text="Strakke muren en plafonds? Stucwerk geeft je interieur een hoogwaardige afwerking. Laat je adviseren door mij."
+                        ></geitz-card>
+                        <geitz-card 
+                            href="/diensten/#schilderwerk"
+                            src="/assets/images/schilder-resultaat1.jpeg"
+                            alt="Schilderwerk"
+                            title="Schilderwerk"
+                            text="Professioneel schilderwerk voor binnen en buiten. Duurzaam, strak en vakkundig uitgevoerd."
+                        ></geitz-card>
+                        <geitz-card 
+                            href="/diensten/#installatie"
+                            src="/assets/images/installatie-1.jpg"
+                            alt="Installatie"
+                            title="Installatie"
+                            text="Van elektra tot sanitair: wij verzorgen alle installatiewerkzaamheden met precisie en betrouwbaarheid."
+                        ></geitz-card>
+                        <geitz-card 
+                            href="/diensten/#coating"
+                            src="/assets/images/coating-resultaat1.jpeg"
+                            alt="Vloercoating"
+                            title="Vloercoating"
+                            text="Duurzame en stijlvolle vloercoatings voor een strakke en slijtvaste afwerking. Geschikt voor woningen en bedrijfsruimtes."
+                        ></geitz-card>
                     </div>
                 </div>
             </div>
@@ -285,84 +198,9 @@
                 </div>
             </div>
         </section>
-        <section id="contact">
-            <div class="container flex">
-                <div class="flex-column wide">
-                    <div class="title-wrapper">
-                        <h2>Contact</h2>
-                    </div>
-                    <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
-                </div>
-                <div class="flex-column">
-                    <div class="contact-form">
-                        <form action="/assets/contact.php" method="post">
-                            <div class="form-group">
-                                <label for="name">Naam</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Bericht</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button class="button" type="submit">Verstuur</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <geitz-contact></geitz-contact>
     </main>
-    <footer>
-        <div class="container footer-container">
-            <div class="flex-column">
-                <div class="footer-logo">
-                    <img src="/assets/logos/logo.avif" alt="Geitz Klussenbedrijf">
-                </div>
-            </div>
-            <div class="flex-column">
-                <div class="footer-contact">
-                    <p>
-                        Geitz Klussenbedrijf
-                        <br>
-                        Wrijfschaalpad 21c
-                        <br>
-                        5347 HX Oss
-                        <br>
-                        06 - 21 813 113
-                        <br>
-                        <a href="mailto:info@geitzklussenbedrijf.nl">info@geitzklussenbedrijf.nl</a>
-                        <br>
-                        KvK Oost Brabant: 81824092
-                        <br>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>
-                &copy; 2021 -
-                <span id="current-year"></span>
-                Geitz klussenbedrijf
-            </p>
-        </div>
-    </footer>
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
+    <geitz-footer></geitz-footer>
+    <geitz-lightbox></geitz-lightbox>
 </body>
 </html>

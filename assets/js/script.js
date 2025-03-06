@@ -1,5 +1,3 @@
-document.getElementById('current-year').textContent = new Date().getFullYear();
-
 document.addEventListener('DOMContentLoaded', function() {
   const carousels = document.querySelectorAll('.carousel');
 
