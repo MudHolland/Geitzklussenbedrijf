@@ -234,6 +234,7 @@ footer .container {
 	height: 100%;
 	display: flex;
 	align-items: center;
+	margin-inline:var(--spacing-m);
 }
 
 .nav__links ul {
@@ -965,7 +966,7 @@ figure figcaption {
 	cursor: pointer;
 	padding: 0;
 	z-index: 1000;
-	margin-left:var(--spacing-l);
+	margin-inline:var(--spacing-m);
 }
 
 .hamburger__line {
