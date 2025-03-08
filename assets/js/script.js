@@ -168,6 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (bgImage) {
       heroSection.style.setProperty('--hero-bg-image', `url(${bgImage})`);
   } else {
-      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/hero.jpg")');
+      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/IMG_4422.png")');
   }
 });
