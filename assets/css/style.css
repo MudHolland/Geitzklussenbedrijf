@@ -300,6 +300,7 @@ footer .container {
 	gap: var(--spacing-l);
 	padding: var(--spacing-l);
 	background-color: var(--white);
+	width:max-content;
 }
 
 .nav__links ul li:hover > a::after {
