@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+  
+  const heroSection = document.getElementById('hero');
+  const bgImage = heroSection.getAttribute('data-bg');
+  if (bgImage) {
+      heroSection.style.setProperty('--hero-bg-image', `url(${bgImage})`);
+  } else {
+      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/IMG_4422.png")');
+  }
+
   const carousels = document.querySelectorAll('.carousel');
 
   carousels.forEach(carousel => {
@@ -159,15 +169,4 @@ hamburger.addEventListener('click', () => {
 navLinks.addEventListener('click', () => {
   navLinks.classList.remove('active');
   hamburger.classList.remove('active');
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  const heroSection = document.getElementById('hero');
-  const bgImage = heroSection.getAttribute('data-bg');
-  if (bgImage) {
-      heroSection.style.setProperty('--hero-bg-image', `url(${bgImage})`);
-  } else {
-      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/IMG_4422.png")');
-  }
 });
