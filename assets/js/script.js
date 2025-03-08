@@ -138,17 +138,11 @@ document.querySelector('main').addEventListener('click', function (event) {
   }
 });
 
-lightboxClose.addEventListener('click', function () {
+lightbox.addEventListener('click', function (event) {
   lightbox.style.display = 'none';
   lightboxImg.classList.remove('zoom-in'); // Reset zoom effect
 });
 
-lightbox.addEventListener('click', function (event) {
-  if (event.target === lightbox) {
-    lightbox.style.display = 'none';
-    lightboxImg.classList.remove('zoom-in'); // Reset zoom effect
-  }
-});
 });
 
 // Select the hamburger button and the nav links
@@ -174,6 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (bgImage) {
       heroSection.style.setProperty('--hero-bg-image', `url(${bgImage})`);
   } else {
-      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/werk-schilder-overkapping.webp")');
+      heroSection.style.setProperty('--hero-bg-image', 'url("/assets/images/IMG_4422.png")');
   }
 });

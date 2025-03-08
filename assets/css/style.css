@@ -52,7 +52,7 @@
 
 	--big: 1.25rem/1.6em var(--ff-body);
 	--p: 1rem/1.6em var(--ff-body);
-	--small: 0.75em/2rem var(--ff-body);
+	--small: 0.75em/1.3rem var(--ff-body);
 	--xsmall: 0.5em/2rem var(--ff-body);
 	--quote: italic 1rem/1.6em var(--ff-body);
 
@@ -167,10 +167,10 @@ h4 {
 }
 
 .container {
-	max-width: 1200px;
-	margin: 0 auto;
+	max-inline-size: 1200px;
+	margin-inline: auto;
 	width:calc(100vw - 2rem);
-	padding: 0 var(--spacing);
+	/* padding: 0 var(--spacing); */
 }
 
 .flex,
@@ -234,7 +234,7 @@ footer .container {
 	height: 100%;
 	display: flex;
 	align-items: center;
-	margin-inline:var(--spacing-m);
+	/* margin-inline:var(--spacing-m); */
 }
 
 .nav__links ul {
@@ -343,10 +343,10 @@ footer .container {
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-    background-image: var(--hero-bg-image, url("/assets/images/werk-schilder-overkapping.webp"));
+    background-image: var(--hero-bg-image, url("/assets/images/IMG_4422.png"));
 	opacity: 0.3;
 	background-size: cover;
-	background-position: 0 -100px;
+	background-position: 0 -350px;
 	background-repeat: no-repeat;
 }
 
@@ -480,6 +480,7 @@ blockquote p::after {
 cite {
 	font: var(--small);
 	color: var(--gray-50);
+	text-align:end;
 	opacity: 0.75;
 	margin-left: auto;
 }
@@ -740,6 +741,7 @@ figure figcaption {
 
 .carousel-item blockquote{
 	max-width:calc(100vw - 10rem);
+	height:100%;
 }
 
 .lightbox {
@@ -814,16 +816,18 @@ figure figcaption {
 	background-color: var(--secondary-100);
 	padding: var(--spacing-l);
 	border-radius: var(--spacing-xs);
-	/* min-width: calc(100vw - ( 8 * var(--spacing-m))); */
+	width:100%;
+	/* min-width: calc(100vw - ( 4 * var(--spacing-m))); */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form .form-group {
 	margin-bottom: var(--spacing);
+	display: flex;
+	flex-direction: column;
 }
 
 .contact-form label {
-	display: block;
 	font-weight: bold;
 	color: var(--primary-900);
 	margin-bottom: var(--spacing-s);
@@ -832,7 +836,7 @@ figure figcaption {
 .contact-form input,
 .contact-form textarea {
 	box-sizing: border-box;
-	width: 100%;
+	/* width: 100%; */
 	padding: var(--spacing-s);
 	border: 0px solid var(--primary-900);
 	border-radius: var(--spacing-xs);
@@ -966,7 +970,7 @@ figure figcaption {
 	cursor: pointer;
 	padding: 0;
 	z-index: 1000;
-	margin-inline:var(--spacing-m);
+	margin-left:var(--spacing-l);
 }
 
 .hamburger__line {
@@ -1006,9 +1010,19 @@ figure figcaption {
 	display:none;
 }
 
+@media only screen and (max-width: 1550px) {
+	#hero:before {
+		background-position: 0;
+	}
+}
+
 @media only screen and (max-width: 1200px) {
 	.none{
 		display:flex;
+	}
+
+	#hero h1 {
+		transform: translateY(-100px);
 	}
 }
 
@@ -1049,7 +1063,7 @@ figure figcaption {
 
 	.nav__links ul {
 		flex-direction: column;
-		gap: var(--spacing-m);
+		/* gap: var(--spacing-m); */
 	}
 
 	.nav__links ul li {
@@ -1076,6 +1090,10 @@ figure figcaption {
 		flex-direction:column;
 		gap:var(--spacing-l);
 	}
+
+	.carousel-item blockquote{
+		width:calc(100vw - 10rem);
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -1089,8 +1107,16 @@ figure figcaption {
 		margin-inline: auto;
 	}
 
+	.contact-form {
+		width:500px;
+	}
+
 	.jobs-list__job img {
 		height: 350px;
+	}
+
+	#hero:before {
+		background-position: calc((-768px / 2) + (100vw / 2)) 0;
 	}
 }
 
@@ -1099,5 +1125,9 @@ figure figcaption {
 	#hero .flex-column:nth-last-child(1) {
 		min-width: auto;
 		margin-inline: 0;
+	}
+
+	.contact-form {
+		width:calc(100vw - 2rem);
 	}
 }
