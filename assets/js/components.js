@@ -43,17 +43,6 @@ class THeader extends HTMLElement {
                                     </li>
                                 </ul>
                             </li>
-                            <!-- <li>
-                                <a href="/projecten/" aria-haspopup="true" aria-expanded="false">Projecten</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="/projecten/pijkestraat">Project Pijkestraat</a>
-                                    </li>
-                                    <li>
-                                        <a href="/projecten/wrijfschaalpad/">Project Wrijfschaalpad</a>
-                                    </li>
-                                </ul>
-                            </li> -->
                             <li>
                                 <a href="/over-mij/" aria-haspopup="true" aria-expanded="false">Over mij</a>
                                 <ul class="submenu">
