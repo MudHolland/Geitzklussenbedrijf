@@ -189,7 +189,7 @@ class TFooter extends HTMLElement {
                 <div class="flex-column">
                     <div class="footer-contact">
                         <p>
-                            Geitz Klussenbedrijf
+                            <span style="font-weight:700">Geitz Klussenbedrijf</span>
                             <br>
                             Wrijfschaalpad 21c
                             <br>
@@ -197,10 +197,11 @@ class TFooter extends HTMLElement {
                             <br>
                             06 - 21 813 113
                             <br>
-                            <a href="mailto:info@geitzklussenbedrijf.nl">info@geitzklussenbedrijf.nl</a>
-                            <br>
                             KvK Oost Brabant: 81824092
                             <br>
+                            <a href="mailto:info@geitzklussenbedrijf.nl">info@geitzklussenbedrijf.nl</a>
+                            <br>
+                            <a href="/algemene-voorwaarden">Algemene voorwaarden</a>
                         </p>
                     </div>
                 </div>

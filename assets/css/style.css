@@ -422,6 +422,35 @@ section:nth-child(odd) {
 	}
 }
 
+b{
+	font-weight:700;
+}
+
+i{
+	font-style: italic;
+}
+
+ol{
+	list-style:decimal;
+	margin-left:2rem;
+	padding-block: 1rem 2rem;
+}
+
+ol ul,
+.conditions ul{
+	text-align:left;
+	opacity: 1;
+	list-style-type: disc;   /* brings back the bullets */
+	padding-left: 1.5rem;    /* adds space before bullets */
+	margin-block: 1rem;     /* optional: space after list */
+}
+
+ol ul li,
+.conditions ul li {
+	color: var(--secondary-900);
+
+}
+
 ul {
 	list-style: none;
 	padding: 0;
