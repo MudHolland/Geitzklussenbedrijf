@@ -133,6 +133,7 @@ class TContact extends HTMLElement {
 <form action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="cbfba71f-b780-4fc9-a095-9a5278bb5df4">
     <input type="hidden" name="redirect" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/"> 
+	<input type="hidden" name="replyto" value="{{email}}">
 
 	<input type="hidden" name="subject" value="Nieuw bericht via website">
     <div class="form-group">
