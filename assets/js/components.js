@@ -130,31 +130,25 @@ class TContact extends HTMLElement {
 			</div>
 			<div class="flex-column">
 				<div class="contact-form">
-					<form action="/sendmail.php" method="POST">
-						<div class="form-group">
-							<label for="name">Naam</label>
-							<input
-								type="text"
-								id="name"
-								name="name"
-								required
-							>
-						</div>
-						<div class="form-group">
-							<label for="email">E-mail</label>
-							<input
-								type="email"
-								id="email"
-								name="email"
-								required
-							>
-						</div>
-						<div class="form-group">
-							<label for="message">Bericht</label>
-							<textarea id="message" name="message" required></textarea>
-						</div>
-						<button class="button" type="submit">Verstuur</button>
-					</form>
+<form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="cbfba71f-b780-4fc9-a095-9a5278bb5df4">
+    <input type="hidden" name="redirect" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/"> 
+
+	<input type="hidden" name="subject" value="Nieuw bericht via website">
+    <div class="form-group">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <button class="button" type="submit">Verstuur</button>
+</form>
 				</div>
 			</div>
 		</div>
