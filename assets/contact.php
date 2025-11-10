@@ -57,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </html>
         ";
 
-        $headers_copy = "From: $receiverMail\r\n";
-        $headers_copy .= "Reply-To: $receiverMail\r\n";
+        $headers_copy = "From: info@geitzklussenbedrijf.nl\r\n";
+        $headers_copy .= "From: info@geitzklussenbedrijf.nl\r\n";
         $headers_copy .= "MIME-Version: 1.0\r\n";
         $headers_copy .= "Content-Type: text/html; charset=UTF-8\r\n";
 
