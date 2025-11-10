@@ -132,21 +132,13 @@ class TContact extends HTMLElement {
 				<div class="contact-form">
 <form action="https://formsubmit.co/info@geitzklussenbedrijf.nl" method="POST">
 
-    <!-- Subject voor jouw inbox (info@) – nu met echte naam! -->
-    <input type="hidden" name="_subject" value="Nieuw bericht van [naam] via geitzklussenbedrijf.nl">
-    <input type="hidden" name="_subject_replace" value="[naam]={{name}}">
+    <!-- Subject voor jou (info@) – vaste tekst + naam komt automatisch in body via table template -->
+    <input type="hidden" name="_subject" value="Nieuw bericht via geitzklussenbedrijf.nl">
 
-    <!-- Mooie HTML-mail naar jou (info@) -->
-    <input type="hidden" name="_email.template" value="
-        <h3 style='color:#2c5aa0;'>Nieuw contactformulier ontvangen!</h3>
-        <p><strong>Naam:</strong> {{name}}</p>
-        <p><strong>E-mail:</strong> <a href='mailto:{{email}}'>{{email}}</a></p>
-        <p><strong>Bericht:</strong><br>{{message}}</p>
-        <hr>
-        <small>Verzonden op {{date}} om {{time}} via <a href='https://www.geitzklussenbedrijf.nl'>geitzklussenbedrijf.nl</a></small>
-    ">
+    <!-- Mooie tabel-mail naar jou (info@) met alle velden + datum/tijd -->
+    <input type="hidden" name="_template" value="table">
 
-    <!-- Automatische kopie naar de klant (WERKT NU ECHT!) -->
+    <!-- Automatische kopie naar de klant – NU MET {{name}}, {{message}} en HTML + logo -->
     <input type="hidden" name="_autoresponse" value="
         <p>Beste {{name}},</p>
         <p>Bedankt voor je bericht! Hieronder een automatische kopie:</p>
@@ -163,13 +155,13 @@ class TContact extends HTMLElement {
         <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;'>
     ">
 
-    <!-- Doorverwijzing -->
+    <!-- Doorverwijzing naar bedankpagina -->
     <input type="hidden" name="_next" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/">
 
-    <!-- Spam-protectie -->
-    <input type="hidden" name="_captcha" value="false">
+    <!-- VERWIJDER _captcha=false → default=true, zodat autoresponse werkt! -->
+    <!-- Als je écht geen captcha wil: voeg later _captcha=false toe MAAR dan geen auto-reply -->
 
-    <!-- VELDEN – email MOET exact 'email' heten! -->
+    <!-- Je velden (email MOET exact name="email" zijn) -->
     <div class="form-group">
         <label for="name">Naam</label>
         <input type="text" id="name" name="name" required>
