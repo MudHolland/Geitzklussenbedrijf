@@ -132,9 +132,11 @@ class TContact extends HTMLElement {
 				<div class="contact-form">
 <form action="https://formsubmit.co/info@geitzklussenbedrijf.nl" method="POST">
 
-    <!-- Mail naar jou (info@) met mooie template -->
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="Nieuw bericht van {{name}} via geitzklussenbedrijf.nl">
+    <!-- Subject voor jouw inbox (info@) – nu met echte naam! -->
+    <input type="hidden" name="_subject" value="Nieuw bericht van [naam] via geitzklussenbedrijf.nl">
+    <input type="hidden" name="_subject_replace" value="[naam]={{name}}">
+
+    <!-- Mooie HTML-mail naar jou (info@) -->
     <input type="hidden" name="_email.template" value="
         <h3 style='color:#2c5aa0;'>Nieuw contactformulier ontvangen!</h3>
         <p><strong>Naam:</strong> {{name}}</p>
@@ -144,7 +146,7 @@ class TContact extends HTMLElement {
         <small>Verzonden op {{date}} om {{time}} via <a href='https://www.geitzklussenbedrijf.nl'>geitzklussenbedrijf.nl</a></small>
     ">
 
-    <!-- Automatische kopie naar de klant (exact zoals jouw PHP) -->
+    <!-- Automatische kopie naar de klant (WERKT NU ECHT!) -->
     <input type="hidden" name="_autoresponse" value="
         <p>Beste {{name}},</p>
         <p>Bedankt voor je bericht! Hieronder een automatische kopie:</p>
@@ -161,13 +163,13 @@ class TContact extends HTMLElement {
         <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;'>
     ">
 
-    <!-- Doorverwijzing naar bedankpagina -->
+    <!-- Doorverwijzing -->
     <input type="hidden" name="_next" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/">
 
-    <!-- Spam-protectie (onzichtbaar voor bezoeker) -->
+    <!-- Spam-protectie -->
     <input type="hidden" name="_captcha" value="false">
 
-    <!-- Je velden (verplicht name='email' voor replyto) -->
+    <!-- VELDEN – email MOET exact 'email' heten! -->
     <div class="form-group">
         <label for="name">Naam</label>
         <input type="text" id="name" name="name" required>
