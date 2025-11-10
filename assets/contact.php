@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </html>
     ";
 
-    $headers = "From: info@geitzklussenbedrijf.nl\r\n";
+    $headers .= "From: info@geitzklussenbedrijf.nl\r\n";
     $headers .= "Reply-To: $senderEmail\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -57,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </html>
         ";
 
-        $headers_copy = "From: info@geitzklussenbedrijf.nl\r\n";
         $headers_copy .= "From: info@geitzklussenbedrijf.nl\r\n";
+        $headers_copy .= "Reply-To: info@geitzklussenbedrijf.nl\r\n";
         $headers_copy .= "MIME-Version: 1.0\r\n";
         $headers_copy .= "Content-Type: text/html; charset=UTF-8\r\n";
 
