@@ -130,7 +130,7 @@ class TContact extends HTMLElement {
 			</div>
 			<div class="flex-column">
 				<div class="contact-form">
-					<form action="/contact.php" method="post">
+					<form action="/sendmail.php" method="POST">
 						<div class="form-group">
 							<label for="name">Naam</label>
 							<input

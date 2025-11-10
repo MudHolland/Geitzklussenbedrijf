@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Laad geheime gegevens
-require_once 'config.php';  // Zorg dat dit pad klopt!
+require_once '../config.php';
 
 // Laad PHPMailer classes
 require 'PHPMailer/src/Exception.php';
@@ -34,13 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->SMTPAuth   = true;
         $mail->Username   = SMTP_USER;
         $mail->Password   = SMTP_PASS;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  // i.p.v. STARTTLS
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // i.p.v. STARTTLS
         $mail->Port       = SMTP_PORT;
         $mail->CharSet    = 'UTF-8';
 
         // Debug (verwijder dit later als het werkt!)
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        // $mail->Debugoutput = function($str, $level) { error_log("SMTP $level: $str"); };
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->Debugoutput = function($str, $level) { error_log("SMTP $level: $str"); };
 
         // Wie stuurt het?
         $mail->setFrom(SMTP_USER, 'Geitz Klussenbedrijf');
