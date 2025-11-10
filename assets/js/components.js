@@ -132,36 +132,40 @@ class TContact extends HTMLElement {
 				<div class="contact-form">
 <form action="https://formsubmit.co/info@geitzklussenbedrijf.nl" method="POST">
 
-    <!-- Subject voor jou (info@) – vaste tekst + naam komt automatisch in body via table template -->
+    <!-- Jouw mail (info@) blijft perfect met table template -->
     <input type="hidden" name="_subject" value="Nieuw bericht via geitzklussenbedrijf.nl">
-
-    <!-- Mooie tabel-mail naar jou (info@) met alle velden + datum/tijd -->
     <input type="hidden" name="_template" value="table">
 
-    <!-- Automatische kopie naar de klant – NU MET {{name}}, {{message}} en HTML + logo -->
-    <input type="hidden" name="_autoresponse" value="
-        <p>Beste {{name}},</p>
+    <!-- AUTO-REPLY NAAR KLANT: NU VOLLEDIG NEDERLANDS + HTML + LOGO -->
+    <input type="hidden" name="_autoresponse" value="Geitz Klussenbedrijf heeft je bericht ontvangen!">
+    <input type="hidden" name="_autoresponse.html" value="
+        <h3 style='color:#2c5aa0;'>Beste {{name}},</h3>
         <p>Bedankt voor je bericht! Hieronder een automatische kopie:</p>
-        <blockquote style='background:#f9f9f9;padding:15px;border-left:4px solid #2c5aa0;'>
+        <blockquote style='background:#f9f9f9;padding:15px;border-left:4px solid #2c5aa0;margin:20px 0;'>
             {{message}}
         </blockquote>
-        <hr>
+        <hr style='border:1px solid #eee;'>
         <p>Ik reageer zo snel mogelijk – uiterlijk binnen 1-2 werkdagen.</p>
         <p>Met vriendelijke groet,<br>
         <strong>Marc Geitz</strong><br>
         Geitz Klussenbedrijf<br>
-        <a href='https://www.geitzklussenbedrijf.nl'>www.geitzklussenbedrijf.nl</a></p>
+        <a href='https://www.geitzklussenbedrijf.nl' style='color:#2c5aa0;'>www.geitzklussenbedrijf.nl</a></p>
         <p>&nbsp;</p>
-        <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;'>
+        <div style='text-align:center;'>
+            <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;border-radius:8px;'>
+        </div>
+        <p style='font-size:12px;color:#666;margin-top:30px;'>
+            Dit is een automatisch gegenereerde e-mail van het contactformulier op geitzklussenbedrijf.nl
+        </p>
     ">
 
-    <!-- Doorverwijzing naar bedankpagina -->
+    <!-- Doorverwijzing -->
     <input type="hidden" name="_next" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/">
 
-    <!-- VERWIJDER _captcha=false → default=true, zodat autoresponse werkt! -->
-    <!-- Als je écht geen captcha wil: voeg later _captcha=false toe MAAR dan geen auto-reply -->
+    <!-- Spam-protectie (captcha blijft, want anders geen auto-reply) -->
+    <!-- Als je later geen captcha wil: voeg _captcha=false toe, maar dan geen HTML auto-reply -->
 
-    <!-- Je velden (email MOET exact name="email" zijn) -->
+    <!-- Velden -->
     <div class="form-group">
         <label for="name">Naam</label>
         <input type="text" id="name" name="name" required>
