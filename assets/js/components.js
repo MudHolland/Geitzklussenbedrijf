@@ -130,12 +130,44 @@ class TContact extends HTMLElement {
 			</div>
 			<div class="flex-column">
 				<div class="contact-form">
-<form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="cbfba71f-b780-4fc9-a095-9a5278bb5df4">
-    <input type="hidden" name="redirect" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/"> 
-	<input type="hidden" name="replyto" value="{{email}}">
+<form action="https://formsubmit.co/info@geitzklussenbedrijf.nl" method="POST">
 
-	<input type="hidden" name="subject" value="Nieuw bericht via website">
+    <!-- Mail naar jou (info@) met mooie template -->
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_subject" value="Nieuw bericht van {{name}} via geitzklussenbedrijf.nl">
+    <input type="hidden" name="_email.template" value="
+        <h3 style='color:#2c5aa0;'>Nieuw contactformulier ontvangen!</h3>
+        <p><strong>Naam:</strong> {{name}}</p>
+        <p><strong>E-mail:</strong> <a href='mailto:{{email}}'>{{email}}</a></p>
+        <p><strong>Bericht:</strong><br>{{message}}</p>
+        <hr>
+        <small>Verzonden op {{date}} om {{time}} via <a href='https://www.geitzklussenbedrijf.nl'>geitzklussenbedrijf.nl</a></small>
+    ">
+
+    <!-- Automatische kopie naar de klant (exact zoals jouw PHP) -->
+    <input type="hidden" name="_autoresponse" value="
+        <p>Beste {{name}},</p>
+        <p>Bedankt voor je bericht! Hieronder een automatische kopie:</p>
+        <blockquote style='background:#f9f9f9;padding:15px;border-left:4px solid #2c5aa0;'>
+            {{message}}
+        </blockquote>
+        <hr>
+        <p>Ik reageer zo snel mogelijk – uiterlijk binnen 1-2 werkdagen.</p>
+        <p>Met vriendelijke groet,<br>
+        <strong>Marc Geitz</strong><br>
+        Geitz Klussenbedrijf<br>
+        <a href='https://www.geitzklussenbedrijf.nl'>www.geitzklussenbedrijf.nl</a></p>
+        <p>&nbsp;</p>
+        <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;'>
+    ">
+
+    <!-- Doorverwijzing naar bedankpagina -->
+    <input type="hidden" name="_next" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/">
+
+    <!-- Spam-protectie (onzichtbaar voor bezoeker) -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Je velden (verplicht name='email' voor replyto) -->
     <div class="form-group">
         <label for="name">Naam</label>
         <input type="text" id="name" name="name" required>
@@ -146,8 +178,9 @@ class TContact extends HTMLElement {
     </div>
     <div class="form-group">
         <label for="message">Bericht</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" rows="5" required></textarea>
     </div>
+
     <button class="button" type="submit">Verstuur</button>
 </form>
 				</div>
