@@ -118,75 +118,120 @@ class TCard extends HTMLElement {
 }
 
 class TContact extends HTMLElement {
-    connectedCallback() {
-        // Genereer uniek ID voor dit formulier
-        const formId = `contact-form-${Math.random().toString(36).substr(2, 9)}`;
-
-        this.innerHTML = `
-
-<section id="contact">
-    <div class="container flex">
-        <div class="flex-column wide">
-            <div class="title-wrapper">
-                <h2>Contact</h2>
-            </div>
-            <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
-        </div>
-        <div class="flex-column">
-            <div class="contact-form">
-                <form id="${formId}">
-                    <div class="form-group">
-                        <label for="${formId}-name">Naam</label>
-                        <input type="text" id="${formId}-name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="${formId}-email">E-mail</label>
-                        <input type="email" id="${formId}-email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="${formId}-message">Bericht</label>
-                        <textarea id="${formId}-message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button class="button" type="submit">Verstuur</button>
-                </form>
-            </div>
-        </div>
+	connectedCallback() {
+		this.innerHTML = `
+		<section id="contact">
+		<div class="container flex">
+			<div class="flex-column wide">
+				<div class="title-wrapper">
+					<h2>Contact</h2>
+				</div>
+				<p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
+			</div>
+			<div class="flex-column">
+				<div class="contact-form">
+<form id="contact-form">
+    <div class="form-group">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" required>
     </div>
-</section>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button class="button" type="submit">Verstuur</button>
+</form>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
-<script type="text/javascript">
-    // WACHT tot DOM klaar is
-    document.addEventListener('DOMContentLoaded', function() {
-        emailjs.init("dUpNs3FN0iBZB3oT1");
+<!-- Voeg dit JS toe in je <head> of onderaan body (via components.js als nodig) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init("YOUR_USER_ID");  // Je EmailJS user ID
 
-        const form = document.getElementById('${formId}');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-                const data = {
-                    from_name: form.querySelector('[name="name"]').value,
-                    from_email: form.querySelector('[name="email"]').value,
-                    message: form.querySelector('[name="message"]').value,
-                    to_email: 'info@geitzklussenbedrijf.nl'
-                };
-
-                emailjs.send('service_n7kue88', 'template_m23gqnv', data)
-                    .then(() => emailjs.send('service_n7kue88', 'template_wd2xg4q', {
-                        to_name: data.from_name,
-                        to_email: data.from_email,
-                        message: data.message
-                    }))
-                    .then(() => window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/')
-                    .catch(() => alert('Er is een fout opgetreden in het contactformulier. Bel direct 06 - 21 813 113 voor contact met Geitz Klussenbedrijf.'));
+        // Verstuur naar jou (template 1)
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID_1', {
+            from_name: document.querySelector('#name').value,
+            from_email: document.querySelector('#email').value,
+            message: document.querySelector('#message').value
+        }).then(function() {
+            // Auto-reply naar klant (template 2)
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID_2', {
+                to_name: document.querySelector('#name').value,
+                to_email: document.querySelector('#email').value,
+                message: document.querySelector('#message').value
             });
-        }
+            window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/';
+        }, function(error) {
+            alert('Fout: ' + JSON.stringify(error));
+        });
     });
-<\/script>
+</script>
 
-        `;
-    }
+
+
+<form action="https://formsubmit.co/info@geitzklussenbedrijf.nl" method="POST">
+
+    <!-- Jouw mail (info@) blijft perfect met table template -->
+    <input type="hidden" name="_subject" value="Nieuw bericht via geitzklussenbedrijf.nl">
+    <input type="hidden" name="_template" value="table">
+
+    <!-- AUTO-REPLY NAAR KLANT: NU VOLLEDIG NEDERLANDS + HTML + LOGO -->
+    <input type="hidden" name="_autoresponse" value="Geitz Klussenbedrijf heeft je bericht ontvangen!">
+    <input type="hidden" name="_autoresponse.html" value="
+        <h3 style='color:#2c5aa0;'>Beste {{name}},</h3>
+        <p>Bedankt voor je bericht! Hieronder een automatische kopie:</p>
+        <blockquote style='background:#f9f9f9;padding:15px;border-left:4px solid #2c5aa0;margin:20px 0;'>
+            {{message}}
+        </blockquote>
+        <hr style='border:1px solid #eee;'>
+        <p>Ik reageer zo snel mogelijk – uiterlijk binnen 1-2 werkdagen.</p>
+        <p>Met vriendelijke groet,<br>
+        <strong>Marc Geitz</strong><br>
+        Geitz Klussenbedrijf<br>
+        <a href='https://www.geitzklussenbedrijf.nl' style='color:#2c5aa0;'>www.geitzklussenbedrijf.nl</a></p>
+        <p>&nbsp;</p>
+        <div style='text-align:center;'>
+            <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;border-radius:8px;'>
+        </div>
+        <p style='font-size:12px;color:#666;margin-top:30px;'>
+            Dit is een automatisch gegenereerde e-mail van het contactformulier op geitzklussenbedrijf.nl
+        </p>
+    ">
+
+    <!-- Doorverwijzing -->
+    <input type="hidden" name="_next" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/">
+
+    <!-- Spam-protectie (captcha blijft, want anders geen auto-reply) -->
+    <!-- Als je later geen captcha wil: voeg _captcha=false toe, maar dan geen HTML auto-reply -->
+
+    <!-- Velden -->
+    <div class="form-group">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+
+    <button class="button" type="submit">Verstuur</button>
+</form>
+				</div>
+			</div>
+		</div>
+		</section>
+		`;
+	}
 }
 
 class TFooter extends HTMLElement {

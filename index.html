@@ -184,5 +184,38 @@
     </main>
     <geitz-footer></geitz-footer>
     <geitz-lightbox></geitz-lightbox>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function() {
+        emailjs.init("dUpNs3FN0iBZB3oT1");
+
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = {
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    message: document.getElementById('message').value,
+                    to_email: 'info@geitzklussenbedrijf.nl'
+                };
+
+                emailjs.send('service_n7kue88', 'template_m23gqnv', formData)
+                    .then(() => emailjs.send('service_n7kue88', 'template_wd2xg4q', {
+                        to_name: formData.from_name,
+                        to_email: formData.from_email,
+                        message: formData.message
+                    }))
+                    .then(() => {
+                        window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/';
+                    })
+                    .catch((error) => {
+                        alert('Er is een fout opgetreden in het contactformulier. Bel direct 06 - 21 813 113 voor contact met Geitz Klussenbedrijf.');
+                    });
+            });
+        }
+    });
+    </script>
 </body>
 </html>
