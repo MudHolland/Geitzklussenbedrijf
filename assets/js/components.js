@@ -153,10 +153,12 @@ class TContact extends HTMLElement {
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
 <script type="text/javascript">
+    // WACHT tot SDK geladen is + DOM klaar
     document.addEventListener('DOMContentLoaded', function() {
         emailjs.init("dUpNs3FN0iBZB3oT1");
 
-        const component = document.currentScript.closest('geitz-contact');
+        // GEBRUIK 'this' vanuit de component → dit is de <geitz-contact>
+        const component = window.currentComponent; // Wordt gezet in connectedCallback
         const form = component ? component.querySelector('#contact-form') : null;
 
         if (form) {
@@ -181,9 +183,15 @@ class TContact extends HTMLElement {
             });
         }
     });
+
+    // ZET DE COMPONENT VOOR HET SCRIPT
+    window.currentComponent = this;
 <\/script>
 
         `;
+
+        // Reset na uitvoeren (voor als er meerdere zijn)
+        setTimeout(() => { window.currentComponent = null; }, 0);
     }
 }
 
