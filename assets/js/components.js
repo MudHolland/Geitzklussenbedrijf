@@ -120,71 +120,80 @@ class TCard extends HTMLElement {
 class TContact extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = `
-		<section id="contact">
-		<div class="container flex">
-			<div class="flex-column wide">
-				<div class="title-wrapper">
-					<h2>Contact</h2>
-				</div>
-				<p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
-			</div>
-			<div class="flex-column">
-				<div class="contact-form">
-<form action="https://formsubmit.co/info@geitzklussenbedrijf.nl" method="POST">
-
-    <!-- Jouw mail (info@) blijft perfect met table template -->
-    <input type="hidden" name="_subject" value="Nieuw bericht via geitzklussenbedrijf.nl">
-    <input type="hidden" name="_template" value="table">
-
-    <!-- AUTO-REPLY NAAR KLANT: NU VOLLEDIG NEDERLANDS + HTML + LOGO -->
-    <input type="hidden" name="_autoresponse" value="Geitz Klussenbedrijf heeft je bericht ontvangen!">
-    <input type="hidden" name="_autoresponse.html" value="
-        <h3 style='color:#2c5aa0;'>Beste {{name}},</h3>
-        <p>Bedankt voor je bericht! Hieronder een automatische kopie:</p>
-        <blockquote style='background:#f9f9f9;padding:15px;border-left:4px solid #2c5aa0;margin:20px 0;'>
-            {{message}}
-        </blockquote>
-        <hr style='border:1px solid #eee;'>
-        <p>Ik reageer zo snel mogelijk – uiterlijk binnen 1-2 werkdagen.</p>
-        <p>Met vriendelijke groet,<br>
-        <strong>Marc Geitz</strong><br>
-        Geitz Klussenbedrijf<br>
-        <a href='https://www.geitzklussenbedrijf.nl' style='color:#2c5aa0;'>www.geitzklussenbedrijf.nl</a></p>
-        <p>&nbsp;</p>
-        <div style='text-align:center;'>
-            <img src='https://www.geitzklussenbedrijf.nl/assets/logos/logo.avif' alt='Geitz Klussenbedrijf' width='300' style='max-width:100%;height:auto;border-radius:8px;'>
+    <section id="contact">
+        <div class="container flex">
+            <div class="flex-column wide">
+                <div class="title-wrapper">
+                    <h2>Contact</h2>
+                </div>
+                <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
+            </div>
+            <div class="flex-column">
+                <div class="contact-form">
+                    <!-- Het formulier -->
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Bericht</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button class="button" type="submit">Verstuur</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <p style='font-size:12px;color:#666;margin-top:30px;'>
-            Dit is een automatisch gegenereerde e-mail van het contactformulier op geitzklussenbedrijf.nl
-        </p>
-    ">
+    </section>
 
-    <!-- Doorverwijzing -->
-    <input type="hidden" name="_next" value="https://www.geitzklussenbedrijf.nl/bericht-ontvangen/">
+<!-- EmailJS SDK laden (plak dit onderaan <body>, voor </body>) -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // Init met je Public Key (user ID)
+        emailjs.init("dUpNs3FN0iBZB3oT1");  // Vervang door je Public Key
+    })();
 
-    <!-- Spam-protectie (captcha blijft, want anders geen auto-reply) -->
-    <!-- Als je later geen captcha wil: voeg _captcha=false toe, maar dan geen HTML auto-reply -->
+    // Form submit handler
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // Voorkom page reload
 
-    <!-- Velden -->
-    <div class="form-group">
-        <label for="name">Naam</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="message">Bericht</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
+        const formData = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
 
-    <button class="button" type="submit">Verstuur</button>
-</form>
-				</div>
-			</div>
-		</div>
-		</section>
+        // Stap 1: Verstuur naar jou (info@)
+        emailjs.send('service_n7kue88', 'template_m23gqnv', formData)
+            .then(function(response) {
+                console.log('Mail naar Marc verzonden!', response.status, response.text);
+                
+                // Stap 2: Auto-reply naar klant
+                const replyData = {
+                    to_name: formData.from_name,
+                    to_email: formData.from_email,
+                    message: formData.message
+                };
+                
+                return emailjs.send('service_n7kue88', 'template_wd2xg4q', replyData);
+            })
+            .then(function(response) {
+                console.log('Auto-reply verzonden!', response.status, response.text);
+                // Doorverwijzing naar bedankpagina
+                window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/';
+            })
+            .catch(function(error) {
+                console.error('Fout bij verzenden:', error);
+                alert('Er is een fout opgetreden. Probeer het later opnieuw of bel direct: 06-XXXXXXX.');
+            });
+    });
+</script>
 		`;
 	}
 }
