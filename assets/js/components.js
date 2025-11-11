@@ -151,14 +151,14 @@ class TContact extends HTMLElement {
     </div>
 </section>
 
-<!-- EmailJS SDK + Script (alles in de component) -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
 <script type="text/javascript">
-    // Wacht tot DOM klaar is (nodig in component!)
     document.addEventListener('DOMContentLoaded', function() {
         emailjs.init("dUpNs3FN0iBZB3oT1");
 
-        const form = document.getElementById('contact-form');
+        const component = document.currentScript.closest('geitz-contact');
+        const form = component ? component.querySelector('#contact-form') : null;
+
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
