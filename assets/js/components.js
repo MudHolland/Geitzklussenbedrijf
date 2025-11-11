@@ -119,6 +119,9 @@ class TCard extends HTMLElement {
 
 class TContact extends HTMLElement {
     connectedCallback() {
+        // Genereer uniek ID voor dit formulier
+        const formId = `contact-form-${Math.random().toString(36).substr(2, 9)}`;
+
         this.innerHTML = `
 
 <section id="contact">
@@ -131,18 +134,18 @@ class TContact extends HTMLElement {
         </div>
         <div class="flex-column">
             <div class="contact-form">
-                <form id="contact-form">
+                <form id="${formId}">
                     <div class="form-group">
-                        <label for="name">Naam</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="${formId}-name">Naam</label>
+                        <input type="text" id="${formId}-name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="${formId}-email">E-mail</label>
+                        <input type="email" id="${formId}-email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Bericht</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="${formId}-message">Bericht</label>
+                        <textarea id="${formId}-message" name="message" rows="5" required></textarea>
                     </div>
                     <button class="button" type="submit">Verstuur</button>
                 </form>
@@ -153,22 +156,19 @@ class TContact extends HTMLElement {
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
 <script type="text/javascript">
-    // WACHT tot SDK geladen is + DOM klaar
+    // WACHT tot DOM klaar is
     document.addEventListener('DOMContentLoaded', function() {
         emailjs.init("dUpNs3FN0iBZB3oT1");
 
-        // GEBRUIK 'this' vanuit de component → dit is de <geitz-contact>
-        const component = window.currentComponent; // Wordt gezet in connectedCallback
-        const form = component ? component.querySelector('#contact-form') : null;
-
+        const form = document.getElementById('${formId}');
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 const data = {
-                    from_name: form.querySelector('#name').value,
-                    from_email: form.querySelector('#email').value,
-                    message: form.querySelector('#message').value,
+                    from_name: form.querySelector('[name="name"]').value,
+                    from_email: form.querySelector('[name="email"]').value,
+                    message: form.querySelector('[name="message"]').value,
                     to_email: 'info@geitzklussenbedrijf.nl'
                 };
 
@@ -183,15 +183,9 @@ class TContact extends HTMLElement {
             });
         }
     });
-
-    // ZET DE COMPONENT VOOR HET SCRIPT
-    window.currentComponent = this;
 <\/script>
 
         `;
-
-        // Reset na uitvoeren (voor als er meerdere zijn)
-        setTimeout(() => { window.currentComponent = null; }, 0);
     }
 }
 
