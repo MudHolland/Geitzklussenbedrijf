@@ -118,10 +118,9 @@ class TCard extends HTMLElement {
 }
 
 class TContact extends HTMLElement {
-	connectedCallback() {
-		this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML = `
 
-        
 <section id="contact">
     <div class="container flex">
         <div class="flex-column wide">
@@ -132,7 +131,6 @@ class TContact extends HTMLElement {
         </div>
         <div class="flex-column">
             <div class="contact-form">
-                <!-- Het formulier -->
                 <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Naam</label>
@@ -153,52 +151,40 @@ class TContact extends HTMLElement {
     </div>
 </section>
 
-<!-- EmailJS SDK laden (plak dit onderaan <body>, voor </body>) -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- EmailJS SDK + Script (alles in de component) -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
 <script type="text/javascript">
-    (function() {
-        // Init met je Public Key (user ID)
-        emailjs.init("dUpNs3FN0iBZB3oT1");  // Vervang door je Public Key
-    })();
+    // Wacht tot DOM klaar is (nodig in component!)
+    document.addEventListener('DOMContentLoaded', function() {
+        emailjs.init("dUpNs3FN0iBZB3oT1");
 
-    // Form submit handler
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();  // Voorkom page reload
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-        const formData = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-
-        // Stap 1: Verstuur naar jou (info@)
-        emailjs.send('service_n7kue88', 'template_m23gqnv', formData)
-            .then(function(response) {
-                console.log('Mail naar Marc verzonden!', response.status, response.text);
-                
-                // Stap 2: Auto-reply naar klant
-                const replyData = {
-                    to_name: formData.from_name,
-                    to_email: formData.from_email,
-                    message: formData.message
+                const data = {
+                    from_name: form.querySelector('#name').value,
+                    from_email: form.querySelector('#email').value,
+                    message: form.querySelector('#message').value,
+                    to_email: 'info@geitzklussenbedrijf.nl'
                 };
-                
-                return emailjs.send('service_n7kue88', 'template_wd2xg4q', replyData);
-            })
-            .then(function(response) {
-                console.log('Auto-reply verzonden!', response.status, response.text);
-                // Doorverwijzing naar bedankpagina
-                window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/';
-            })
-            .catch(function(error) {
-                console.error('Fout bij verzenden:', error);
-                alert('Er is een fout opgetreden. Probeer het later opnieuw of bel direct: 06-XXXXXXX.');
-            });
-    });
-</script>
 
-		`;
-	}
+                emailjs.send('service_n7kue88', 'template_m23gqnv', data)
+                    .then(() => emailjs.send('service_n7kue88', 'template_wd2xg4q', {
+                        to_name: data.from_name,
+                        to_email: data.from_email,
+                        message: data.message
+                    }))
+                    .then(() => window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/')
+                    .catch(() => alert('Er is een fout opgetreden in het contactformulier. Bel direct 06 - 21 813 113 voor contact met Geitz Klussenbedrijf.'));
+            });
+        }
+    });
+<\/script>
+
+        `;
+    }
 }
 
 class TFooter extends HTMLElement {
