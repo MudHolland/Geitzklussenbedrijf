@@ -120,36 +120,38 @@ class TCard extends HTMLElement {
 class TContact extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = `
-    <section id="contact">
-        <div class="container flex">
-            <div class="flex-column wide">
-                <div class="title-wrapper">
-                    <h2>Contact</h2>
-                </div>
-                <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
+
+        
+<section id="contact">
+    <div class="container flex">
+        <div class="flex-column wide">
+            <div class="title-wrapper">
+                <h2>Contact</h2>
             </div>
-            <div class="flex-column">
-                <div class="contact-form">
-                    <!-- Het formulier -->
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Naam</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Bericht</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button class="button" type="submit">Verstuur</button>
-                    </form>
-                </div>
+            <p>Heeft u vragen of wilt u een offerte aanvragen? Neem dan contact met me op via dit formulier.</p>
+        </div>
+        <div class="flex-column">
+            <div class="contact-form">
+                <!-- Het formulier -->
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bericht</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button class="button" type="submit">Verstuur</button>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- EmailJS SDK laden (plak dit onderaan <body>, voor </body>) -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -192,6 +194,68 @@ class TContact extends HTMLElement {
                 console.error('Fout bij verzenden:', error);
                 alert('Er is een fout opgetreden. Probeer het later opnieuw of bel direct: 06-XXXXXXX.');
             });
+    });
+</script>
+<!-- EmailJS SDK laden (altijd eerst) -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+    // Wacht tot DOM geladen is + init EmailJS
+    window.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM geladen – start EmailJS init...');  // DEBUG: dit moet nu loggen!
+
+        // Init met je Public Key
+        emailjs.init("dUpNs3FN0iBZB3oT1");
+        console.log('EmailJS geïnitialiseerd!');  // DEBUG
+
+        // Bind submit-handler (nu veilig)
+        const form = document.getElementById('contact-form');
+        if (form) {
+            console.log('Form gevonden – bind listener...');  // DEBUG
+            form.addEventListener('submit', function(event) {
+                console.log('SUBMIT GETRIGGERD!');  // DEBUG: dit is key – als dit logt, werkt het
+                event.preventDefault();  // Stop normale POST/redirect
+
+                const formData = {
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    message: document.getElementById('message').value
+                };
+                console.log('Form data:', formData);  // DEBUG: check waarden
+
+                if (!formData.from_name || !formData.from_email || !formData.message) {
+                    console.error('Lege velden!');  // DEBUG
+                    alert('Vul alle velden in.');
+                    return;
+                }
+
+                // Stap 1: Verstuur naar jou (info@)
+                console.log('Stuur mail 1...');  // DEBUG
+                emailjs.send('service_n7kue88', 'template_m23gqnv', formData)
+                    .then(function(response) {
+                        console.log('Mail 1 succes!', response.status, response.text);  // DEBUG
+                        
+                        // Stap 2: Auto-reply naar klant
+                        const replyData = {
+                            to_name: formData.from_name,
+                            to_email: formData.from_email,
+                            message: formData.message
+                        };
+                        console.log('Stuur mail 2...');  // DEBUG
+                        return emailjs.send('service_n7kue88', 'template_wd2xg4q', replyData);
+                    })
+                    .then(function(response) {
+                        console.log('Mail 2 succes! Redirect...');  // DEBUG
+                        window.location.href = 'https://www.geitzklussenbedrijf.nl/bericht-ontvangen/';
+                    })
+                    .catch(function(error) {
+                        console.error('FOUT bij verzenden:', error);  // DEBUG
+                        alert('Er is een fout opgetreden: ' + (error.text || JSON.stringify(error)) + '. Probeer later opnieuw of bel: 06-XXXXXXX.');
+                    });
+            });
+        } else {
+            console.error('Form #contact-form NIET gevonden!');  // DEBUG: als dit logt, is het een ID-probleem
+        }
     });
 </script>
 		`;
