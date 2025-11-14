@@ -277,7 +277,6 @@ class TLightbox extends HTMLElement {
 	}
 }
 
-
 customElements.define("geitz-header", THeader);
 customElements.define("geitz-hero", THero);
 customElements.define("geitz-card", TCard);
