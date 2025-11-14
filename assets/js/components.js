@@ -30,7 +30,7 @@ class THeader extends HTMLElement {
                                         <a href="/diensten/#schilderwerk">Schilderwerk</a>
                                     </li>
                                     <li>
-                                        <a href="/diensten/#schilderwerk">Behangen</a>
+                                        <a href="/diensten/#behangen">Behangen</a>
                                     </li>
                                     <li>
                                         <a href="/diensten/#installatie">Installatie</a>
@@ -133,21 +133,7 @@ class TContact extends HTMLElement {
 			</div>
 			<div class="flex-column">
 				<div class="contact-form">
-<form id="contact-form">
-    <div class="form-group">
-        <label for="name">Naam</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="message">Bericht</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <button class="button" type="submit">Verstuur</button>
-</form>
+
 
 <!-- Voeg dit JS toe in je <head> of onderaan body (via components.js als nodig) -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
