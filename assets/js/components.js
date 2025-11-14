@@ -30,6 +30,9 @@ class THeader extends HTMLElement {
                                         <a href="/diensten/#schilderwerk">Schilderwerk</a>
                                     </li>
                                     <li>
+                                        <a href="/diensten/#schilderwerk">Behangen</a>
+                                    </li>
+                                    <li>
                                         <a href="/diensten/#installatie">Installatie</a>
                                     </li>
                                     <li>
