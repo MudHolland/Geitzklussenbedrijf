@@ -44,6 +44,12 @@ class THeader extends HTMLElement {
                                     <li>
                                         <a href="/diensten/#vloeren">Vloeren</a>
                                     </li>
+                                    <li>
+                                        <a href="/diensten/#keukens">Keukenplaatsing</a>
+                                    </li>
+                                    <li>
+                                        <a href="/diensten/#keralit">Keralit Gevelbekleding</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>
